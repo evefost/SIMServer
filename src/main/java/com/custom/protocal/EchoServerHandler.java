@@ -52,12 +52,14 @@ public class EchoServerHandler extends ChannelHandlerAdapter {
 
 	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg) {
+		
 		// ctx.write(msg);
 		Message.Data data = (Data) msg;
 		int i = Message.Data.Cmd.CHAT_MESSAGE_VALUE;
 		System.out.println("channelRead 收到消息[" + data.getId() + "]content[" + data.getContent());
 		if(data.getCmd() == Message.Data.Cmd.LOGIN_VALUE&& !StringUtils.isEmpty(data.getAccount())){
 			//登录成功,回应客户端
+			
 			System.out.println("channelRead 登录成功,回应客户端:"+data.getAccount());
 			ctx.writeAndFlush(data);
 		}
