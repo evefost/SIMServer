@@ -16,6 +16,8 @@
 package com.custom.protocal;
 
 
+import java.util.Random;
+
 import com.custom.util.StringUtils;
 import com.im.sdk.protocal.Message;
 import com.im.sdk.protocal.Message.Data;
@@ -44,9 +46,11 @@ public class EchoServerHandler extends ChannelHandlerAdapter {
 		Message.Data.Builder data = Message.Data.newBuilder();
 		data.setCmd(Message.Data.Cmd.LOGIN_VALUE);
 		data.setCreateTime(System.currentTimeMillis());
-		data.setContent("我是服务端_请登录，60秒内不登录将被断开");
-		data.setIp("192.168.1.38");
-		data.setPort(345678);
+		String ip ="192.168.1.38";
+		int port = 34567;
+		data.setContent("你好，我是服务端_请登录:"+ip+":"+port+"，60秒内不登录将被断开");
+		data.setIp(ip);
+		data.setPort(port);
 		ctx.writeAndFlush(data);
 	}
 
@@ -59,9 +63,20 @@ public class EchoServerHandler extends ChannelHandlerAdapter {
 		System.out.println("channelRead 收到消息[" + data.getId() + "]content[" + data.getContent());
 		if(data.getCmd() == Message.Data.Cmd.LOGIN_VALUE&& !StringUtils.isEmpty(data.getAccount())){
 			//登录成功,回应客户端
-			
-			System.out.println("channelRead 登录成功,回应客户端:"+data.getAccount());
-			ctx.writeAndFlush(data);
+			Message.Data.Builder reply = Message.Data.newBuilder();
+			reply.setCmd(Message.Data.Cmd.LOGIN_VALUE);
+			reply.setCreateTime(data.getCreateTime());
+			reply.setAccount(data.getAccount());
+			boolean ok = new Random().nextBoolean();
+			reply.setLoginSuccess(ok);
+			if(ok){
+				System.out.println("channelRead 登录成功,回应客户端:"+data.getAccount());
+				reply.setContent("登录成功");
+			}else{
+				reply.setContent("登录失败:xxxx");
+				System.out.println("channelRead 登录失败,回应客户端:"+data.getAccount());
+			}
+			ctx.writeAndFlush(reply);
 		}
 		if(data.getCmd() == Message.Data.Cmd.HEARTBEAT_VALUE){
 			System.out.println("channelRead 心跳 回应客户端:"+data.getAccount());
