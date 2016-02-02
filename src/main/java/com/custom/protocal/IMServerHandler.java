@@ -15,10 +15,14 @@
  */
 package com.custom.protocal;
 
-
 import java.util.Random;
 
 import com.custom.util.StringUtils;
+import com.id.server.handler.ChatMessageHandler;
+import com.id.server.handler.HandllerUtil;
+import com.id.server.handler.HeatBeatHandler;
+import com.id.server.handler.IRequestHandler;
+import com.id.server.handler.LoginHandler;
 import com.im.sdk.protocal.Message;
 import com.im.sdk.protocal.Message.Data;
 
@@ -42,13 +46,13 @@ public class IMServerHandler extends ChannelHandlerAdapter {
 	@Override
 	public void channelActive(ChannelHandlerContext ctx) {
 
-		System.out.println("channelActive 已连上服务器 发送聊天服务地址给客户端 ");
+		System.out.println("channelActive 已连上服务器 发送聊天服务地址给客户端 :"+ctx.channel().remoteAddress());
 		Message.Data.Builder data = Message.Data.newBuilder();
 		data.setCmd(Message.Data.Cmd.LOGIN_VALUE);
 		data.setCreateTime(System.currentTimeMillis());
-		String ip ="192.168.1.38";
+		String ip = "192.168.1.38";
 		int port = 34567;
-		data.setContent("你好，我是服务端_请登录:"+ip+":"+port+"，60秒内不登录将被断开");
+		data.setContent("你好，我是服务端_请登录:" + ip + ":" + port + "，60秒内不登录将被断开");
 		data.setIp(ip);
 		data.setPort(port);
 		ctx.writeAndFlush(data);
@@ -56,39 +60,32 @@ public class IMServerHandler extends ChannelHandlerAdapter {
 
 	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg) {
-		
-		// ctx.write(msg);
+
 		Message.Data data = (Data) msg;
-		int i = Message.Data.Cmd.CHAT_MESSAGE_VALUE;
-		System.out.println("channelRead 收到消息[" + data.getId() + "]content[" + data.getContent());
-		if(data.getCmd() == Message.Data.Cmd.LOGIN_VALUE&& !StringUtils.isEmpty(data.getAccount())){
-			//登录成功,回应客户端
-			Message.Data.Builder reply = Message.Data.newBuilder();
-			reply.setCmd(Message.Data.Cmd.LOGIN_VALUE);
-			reply.setCreateTime(data.getCreateTime());
-			reply.setAccount(data.getAccount());
-			boolean ok = new Random().nextBoolean();
-			reply.setLoginSuccess(ok);
-			if(ok){
-				System.out.println("channelRead 登录成功,回应客户端:"+data.getAccount());
-				reply.setContent("登录成功");
-			}else{
-				reply.setContent("登录失败:xxxx");
-				System.out.println("channelRead 登录失败,回应客户端:"+data.getAccount());
-			}
-			ctx.writeAndFlush(reply);
+		showMessageInfoLog(ctx, data);
+		IRequestHandler handler = HandllerUtil.getIRequestHandler(data.getCmd());
+		if (handler != null) {
+			handler.hand(ctx, data);
 		}
-		if(data.getCmd() == Message.Data.Cmd.HEARTBEAT_VALUE){
-			System.out.println("channelRead 心跳 回应客户端:"+data.getAccount());
-			ctx.writeAndFlush(data);
-		}
-		
-		if(data.getCmd() == Message.Data.Cmd.CHAT_MESSAGE_VALUE){
-			System.out.println("channelRead  回应客户端 已收到消息:");
-			Message.Data.Builder reply = Message.Data.newBuilder();
-			reply.setCmd(Message.Data.Cmd.CHAT_MESSAGE_ECHO_VALUE);
-			reply.setCreateTime(data.getCreateTime());
-			ctx.writeAndFlush(reply);
+
+	}
+
+	private void showMessageInfoLog(ChannelHandlerContext ctx, Message.Data data) {
+		switch (data.getCmd()) {
+		case Message.Data.Cmd.LOGIN_VALUE:
+			System.out.println("channelRead 登录消息 :" + ctx.channel().remoteAddress());
+			break;
+		case Message.Data.Cmd.LOGOUT_VALUE:
+			System.out.println("channelRead 登出消息 :" + ctx.channel().remoteAddress());
+			break;
+		case Message.Data.Cmd.CHAT_MESSAGE_VALUE:
+//			System.out.println("channelRead  普通消息:"+data.getContent()+"==time:"+data.getCreateTime());
+			break;
+		case Message.Data.Cmd.HEARTBEAT_VALUE:
+			System.out.println("channelRead  心跳消息:");
+			break;
+		default:
+			break;
 		}
 	}
 
@@ -105,6 +102,6 @@ public class IMServerHandler extends ChannelHandlerAdapter {
 	}
 
 	public void channelInactive(ChannelHandlerContext ctx) {
-		System.out.println("channelActive 服务器断开");
+		System.out.println("channelInactive 客户端断开:"+ctx.channel().remoteAddress());
 	}
 }
