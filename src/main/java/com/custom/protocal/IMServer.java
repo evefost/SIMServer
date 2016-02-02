@@ -27,7 +27,7 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 
-public final class EchoServer {
+public final class IMServer {
 
 	
 	private int port;
@@ -57,7 +57,7 @@ public final class EchoServer {
 							ChannelPipeline p = ch.pipeline();
 							p.addLast(new ProtobufDecoder(Message.Data.getDefaultInstance()));
 							p.addLast(new ProtobufEncoder());
-							p.addLast(new EchoServerHandler());
+							p.addLast(new IMServerHandler());
 						}
 					});
 

@@ -35,7 +35,7 @@
 			</map>
 		</property>
 	</bean> -->
-	<bean id="testHandler" class="com.custom.protocal.EchoServer"
+	<bean id="testHandler" class="com.custom.protocal.IMServer"
 		init-method="bind">
 		<property name="port" value="53456" />
 

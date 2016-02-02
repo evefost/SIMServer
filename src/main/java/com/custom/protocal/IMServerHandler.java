@@ -30,12 +30,12 @@ import io.netty.channel.ChannelHandlerContext;
  * Handler implementation for the echo server.
  */
 @Sharable
-public class EchoServerHandler extends ChannelHandlerAdapter {
+public class IMServerHandler extends ChannelHandlerAdapter {
 
 	/**
 	 * Creates a client-side handler.
 	 */
-	public EchoServerHandler() {
+	public IMServerHandler() {
 
 	}
 
