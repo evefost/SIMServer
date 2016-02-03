@@ -1,10 +1,12 @@
-package com.id.server.handler;
+package com.im.server.util;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import org.junit.Test;
+
+import com.im.server.handler.IRequestHandler;
 
 
 public class HandllerUtil {

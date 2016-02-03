@@ -13,10 +13,11 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package com.custom.protocal;
+package com.im.server.core;
 
 import com.im.sdk.protocal.Message;
 import com.im.sdk.protocal.Message.Data;
+import com.im.sdk.protocal.Message.Data.Cmd;
 import com.im.server.handler.IRequestHandler;
 import com.im.server.util.HandllerUtil;
 
@@ -42,7 +43,7 @@ public class IMServerHandler extends ChannelHandlerAdapter {
 
 		System.out.println("channelActive 已连上服务器 发送聊天服务地址给客户端 :"+ctx.channel().remoteAddress());
 		Message.Data.Builder data = Message.Data.newBuilder();
-		data.setCmd(Message.Data.Cmd.LOGIN_VALUE);
+		data.setCmd(Cmd.LOGIN_VALUE);
 		data.setCreateTime(System.currentTimeMillis());
 		String ip = "192.168.1.38";
 		int port = 34567;
@@ -66,16 +67,16 @@ public class IMServerHandler extends ChannelHandlerAdapter {
 
 	private void showMessageInfoLog(ChannelHandlerContext ctx, Message.Data data) {
 		switch (data.getCmd()) {
-		case Message.Data.Cmd.LOGIN_VALUE:
+		case Cmd.LOGIN_VALUE:
 			System.out.println("channelRead 登录消息 :" + ctx.channel().remoteAddress());
 			break;
-		case Message.Data.Cmd.LOGOUT_VALUE:
+		case Cmd.LOGOUT_VALUE:
 			System.out.println("channelRead 登出消息 :" + ctx.channel().remoteAddress());
 			break;
-		case Message.Data.Cmd.CHAT_MSG_VALUE:
+		case Cmd.CHAT_MSG_VALUE:
 //			System.out.println("channelRead  普通消息:"+data.getContent()+"==time:"+data.getCreateTime());
 			break;
-		case Message.Data.Cmd.HEARTBEAT_VALUE:
+		case Cmd.HEARTBEAT_VALUE:
 			System.out.println("channelRead  心跳消息:");
 			break;
 		default:

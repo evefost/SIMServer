@@ -1,4 +1,4 @@
-package com.id.server.handler;
+package com.im.server.util;
 
 import java.io.File;
 import java.io.IOException;

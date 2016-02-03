@@ -1,4 +1,4 @@
-package com.id.server.handler;
+package com.im.server.handler;
 
 import com.im.sdk.protocal.Message;
 
