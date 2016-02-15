@@ -1,4 +1,4 @@
-package com.custom.util;
+package com.im.server.util;
 
 public class StringUtils {
 
