@@ -59,6 +59,7 @@ public class IMServerHandler extends ChannelHandlerAdapter {
 		Message.Data data = (Data) msg;
 		showMessageInfoLog(ctx, data);
 		IRequestHandler handler = HandllerUtil.getIRequestHandler(data.getCmd());
+		System.out.println("channelRead handler :" + handler);
 		if (handler != null) {
 			handler.hand(ctx, data);
 		}

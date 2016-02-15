@@ -48,7 +48,7 @@ public class ClassUtil {
 	}
 
 	public static List<Class<?>> getClasses(String packageName) throws IOException, ClassNotFoundException {
-		
+		System.out.println("getClasses pk:"+packageName);
 		String path = packageName.replace('.', '/');
 		ClassLoader classloader = Thread.currentThread().getContextClassLoader();
 		URL url = classloader.getResource(path);
