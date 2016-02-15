@@ -35,6 +35,7 @@
 			</map>
 		</property>
 	</bean> -->
+
 	<bean id="testHandler" class="com.im.server.core.IMServer"
 		init-method="bind">
 		<property name="port" value="53456" />
