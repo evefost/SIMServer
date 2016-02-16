@@ -1,1 +1,6 @@
 /com/
+/log4j.properties
+/spring-cim.xml
+/spring-config.xml
+/spring-push.xml
+/struts.xml
