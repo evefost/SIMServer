@@ -57,16 +57,17 @@ public class LoginHandler implements IRequestHandler {
 
 			} else {
 				// 新登录
-				System.out.println("LoginHandler 登录成功,回应客户端:" + data.getAccount());
-				sessionManager.addSession(data.getAccount(), newSession);
-				Message.Data.Builder reply = Message.Data.newBuilder();
-				reply.setCmd(Message.Data.Cmd.LOGIN_VALUE);
-				reply.setCreateTime(data.getCreateTime());
-				reply.setAccount(data.getAccount());
-				reply.setLoginSuccess(true);
-				newSession.write(reply);
-				checkAndSendOffLineMessages(newSession);
+			
 			}
+			System.out.println("LoginHandler 登录成功,回应客户端:" + data.getAccount());
+			sessionManager.addSession(data.getAccount(), newSession);
+			Message.Data.Builder reply = Message.Data.newBuilder();
+			reply.setCmd(Message.Data.Cmd.LOGIN_VALUE);
+			reply.setCreateTime(data.getCreateTime());
+			reply.setAccount(data.getAccount());
+			reply.setLoginSuccess(true);
+			newSession.write(reply);
+			checkAndSendOffLineMessages(newSession);
 		} catch (UnknownHostException e) {
 			System.out.println("LoginHandler Ex:" + e.toString());
 		}

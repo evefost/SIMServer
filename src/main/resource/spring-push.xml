@@ -17,7 +17,7 @@
 		<property name="sessionManager" ref="defaultSessionManager"/>
 	</bean>
 	 
-	<bean id="systemMessagePusher" class="com.farsunset.cim.push.SystemMessagePusher">
+<!-- 	<bean id="systemMessagePusher" class="com.farsunset.cim.push.SystemMessagePusher">
 		<property name="sessionManager" ref="defaultSessionManager"/>
-	 </bean>
+	 </bean> -->
 </beans>
