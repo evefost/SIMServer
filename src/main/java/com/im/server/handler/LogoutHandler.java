@@ -21,7 +21,7 @@ public class LogoutHandler implements IRequestHandler {
 	public void hand(ChannelHandlerContext ctx, Data data) {
 	
 		DefaultSessionManager sessionManager  =  ((DefaultSessionManager) ContextHolder.getBean("defaultSessionManager"));
-		CIMSession ios = sessionManager.getSession(data.getAccount());
+		CIMSession ios = sessionManager.getSession(data.getSender());
 		String account =ios.getTag(CIMConstant.SESSION_KEY).toString();
 		ios.removeTag(CIMConstant.SESSION_KEY);
 		ios.close(true);
@@ -31,7 +31,7 @@ public class LogoutHandler implements IRequestHandler {
 		Message.Data.Builder reply = Message.Data.newBuilder();
 		reply.setCmd(Message.Data.Cmd.LOGOUT_VALUE);
 		reply.setCreateTime(data.getCreateTime());
-		reply.setAccount(data.getAccount());
+		reply.setSender(data.getSender());
 		reply.setLoginSuccess(true);
 
 	}

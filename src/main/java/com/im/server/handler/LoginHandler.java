@@ -25,7 +25,7 @@ public class LoginHandler implements IRequestHandler {
 					.getBean("defaultSessionManager"));
 			// 创建新的session
 			CIMSession newSession = new CIMSession(ctx.channel());
-			newSession.setAccount(data.getAccount());
+			newSession.setAccount(data.getSender());
 			newSession.setGid(UUID.randomUUID().toString());
 			newSession.setHost(InetAddress.getLocalHost().getHostAddress());
 			// 第一次设置心跳时间为登录时间
@@ -33,15 +33,15 @@ public class LoginHandler implements IRequestHandler {
 			newSession.setHeartbeat(System.currentTimeMillis());
 
 			// 由于客户端断线服务端可能会无法获知的情况，客户端重连时，需要关闭旧的连接
-			CIMSession oldSession = sessionManager.getSession(data.getAccount());
+			CIMSession oldSession = sessionManager.getSession(data.getSender());
 			if (oldSession != null && !oldSession.equals(newSession)) {
-				System.out.println("LoginHandler 则让另一个终端下线:" + data.getAccount());
+				System.out.println("LoginHandler 则让另一个终端下线:" + data.getSender());
 				oldSession.removeTag(CIMConstant.SESSION_KEY);
 				Message.Data.Builder offLineReply = Message.Data.newBuilder();
 				// 强行下线消息类型
 				offLineReply.setCmd(Cmd.OTHER_LOGGIN_VALUE);
 				offLineReply.setCreateTime(data.getCreateTime());
-				offLineReply.setReceiver(data.getAccount());
+				offLineReply.setReceiver(data.getSender());
 				if (!oldSession.isLocalhost()) {
 					/*
 					 * 判断当前session是否连接于本台服务器，如不是发往目标服务器处理
@@ -59,12 +59,12 @@ public class LoginHandler implements IRequestHandler {
 				// 新登录
 			
 			}
-			System.out.println("LoginHandler 登录成功,回应客户端:" + data.getAccount());
-			sessionManager.addSession(data.getAccount(), newSession);
+			System.out.println("LoginHandler 登录成功,回应客户端:" + data.getSender());
+			sessionManager.addSession(data.getSender(), newSession);
 			Message.Data.Builder reply = Message.Data.newBuilder();
 			reply.setCmd(Message.Data.Cmd.LOGIN_VALUE);
 			reply.setCreateTime(data.getCreateTime());
-			reply.setAccount(data.getAccount());
+			reply.setSender(data.getSender());
 			reply.setLoginSuccess(true);
 			newSession.write(reply);
 			checkAndSendOffLineMessages(newSession);
