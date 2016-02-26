@@ -20,19 +20,24 @@ public class LogoutHandler implements IRequestHandler {
 	@Override
 	public void hand(ChannelHandlerContext ctx, Data data) {
 	
-		DefaultSessionManager sessionManager  =  ((DefaultSessionManager) ContextHolder.getBean("defaultSessionManager"));
-		CIMSession ios = sessionManager.getSession(data.getSender());
-		String account =ios.getTag(CIMConstant.SESSION_KEY).toString();
-		ios.removeTag(CIMConstant.SESSION_KEY);
-		ios.close(true);
-	
-		sessionManager.removeSession(account);
-		 
-		Message.Data.Builder reply = Message.Data.newBuilder();
-		reply.setCmd(Message.Data.Cmd.LOGOUT_VALUE);
-		reply.setCreateTime(data.getCreateTime());
-		reply.setSender(data.getSender());
-		reply.setLoginSuccess(true);
+		try {
+			DefaultSessionManager sessionManager  =  ((DefaultSessionManager) ContextHolder.getBean("defaultSessionManager"));
+			CIMSession ios = sessionManager.getSession(data.getSender());
+			String account =ios.getTag(CIMConstant.SESSION_KEY).toString();
+			ios.removeTag(CIMConstant.SESSION_KEY);
+			ios.close(true);
+
+			sessionManager.removeSession(account);
+			 
+			Message.Data.Builder reply = Message.Data.newBuilder();
+			reply.setCmd(Message.Data.Cmd.LOGOUT_VALUE);
+			reply.setCreateTime(data.getCreateTime());
+			reply.setSender(data.getSender());
+			reply.setLoginSuccess(true);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 

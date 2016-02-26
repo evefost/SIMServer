@@ -37,7 +37,7 @@ public final class Message {
     /**
      * <code>optional string id = 3;</code>
      */
-    java.lang.String getId();
+    String getId();
     /**
      * <code>optional string id = 3;</code>
      */
@@ -51,7 +51,7 @@ public final class Message {
     /**
      * <code>optional string sender = 4;</code>
      */
-    java.lang.String getSender();
+    String getSender();
     /**
      * <code>optional string sender = 4;</code>
      */
@@ -65,7 +65,7 @@ public final class Message {
     /**
      * <code>optional string content = 5;</code>
      */
-    java.lang.String getContent();
+    String getContent();
     /**
      * <code>optional string content = 5;</code>
      */
@@ -79,7 +79,7 @@ public final class Message {
     /**
      * <code>optional string ip = 6;</code>
      */
-    java.lang.String getIp();
+    String getIp();
     /**
      * <code>optional string ip = 6;</code>
      */
@@ -111,7 +111,7 @@ public final class Message {
     /**
      * <code>optional string receiver = 9;</code>
      */
-    java.lang.String getReceiver();
+    String getReceiver();
     /**
      * <code>optional string receiver = 9;</code>
      */
@@ -141,7 +141,7 @@ public final class Message {
       receiver_ = "";
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -233,14 +233,14 @@ public final class Message {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.im.sdk.protocal.Message.internal_static_com_im_sdk_protocal_Data_descriptor;
+      return Message.internal_static_com_im_sdk_protocal_Data_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.im.sdk.protocal.Message.internal_static_com_im_sdk_protocal_Data_fieldAccessorTable
+      return Message.internal_static_com_im_sdk_protocal_Data_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.im.sdk.protocal.Message.Data.class, com.im.sdk.protocal.Message.Data.Builder.class);
+              Data.class, Builder.class);
     }
 
     /**
@@ -276,6 +276,10 @@ public final class Message {
        * <code>CHAT_OFFLINE_MSGS = 6;</code>
        */
       CHAT_OFFLINE_MSGS(6, 6),
+      /**
+       * <code>MINE_FRIENDS = 7;</code>
+       */
+      MINE_FRIENDS(7, 7),
       ;
 
       /**
@@ -306,6 +310,10 @@ public final class Message {
        * <code>CHAT_OFFLINE_MSGS = 6;</code>
        */
       public static final int CHAT_OFFLINE_MSGS_VALUE = 6;
+      /**
+       * <code>MINE_FRIENDS = 7;</code>
+       */
+      public static final int MINE_FRIENDS_VALUE = 7;
 
 
       public final int getNumber() {
@@ -321,6 +329,7 @@ public final class Message {
           case 4: return CHAT_MSG;
           case 5: return CHAT_MSG_ECHO;
           case 6: return CHAT_OFFLINE_MSGS;
+          case 7: return MINE_FRIENDS;
           default: return null;
         }
       }
@@ -347,7 +356,7 @@ public final class Message {
       }
       public static final com.google.protobuf.Descriptors.EnumDescriptor
           getDescriptor() {
-        return com.im.sdk.protocal.Message.Data.getDescriptor().getEnumTypes().get(0);
+        return Data.getDescriptor().getEnumTypes().get(0);
       }
 
       private static final Cmd[] VALUES = values();
@@ -355,7 +364,7 @@ public final class Message {
       public static Cmd valueOf(
           com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
         if (desc.getType() != getDescriptor()) {
-          throw new java.lang.IllegalArgumentException(
+          throw new IllegalArgumentException(
             "EnumValueDescriptor is not for this type.");
         }
         return VALUES[desc.getIndex()];
@@ -404,7 +413,7 @@ public final class Message {
     }
 
     public static final int ID_FIELD_NUMBER = 3;
-    private volatile java.lang.Object id_;
+    private volatile Object id_;
     /**
      * <code>optional string id = 3;</code>
      */
@@ -414,14 +423,14 @@ public final class Message {
     /**
      * <code>optional string id = 3;</code>
      */
-    public java.lang.String getId() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getId() {
+      Object ref = id_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           id_ = s;
         }
@@ -433,11 +442,11 @@ public final class Message {
      */
     public com.google.protobuf.ByteString
         getIdBytes() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
+      Object ref = id_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         id_ = b;
         return b;
       } else {
@@ -446,7 +455,7 @@ public final class Message {
     }
 
     public static final int SENDER_FIELD_NUMBER = 4;
-    private volatile java.lang.Object sender_;
+    private volatile Object sender_;
     /**
      * <code>optional string sender = 4;</code>
      */
@@ -456,14 +465,14 @@ public final class Message {
     /**
      * <code>optional string sender = 4;</code>
      */
-    public java.lang.String getSender() {
-      java.lang.Object ref = sender_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getSender() {
+      Object ref = sender_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           sender_ = s;
         }
@@ -475,11 +484,11 @@ public final class Message {
      */
     public com.google.protobuf.ByteString
         getSenderBytes() {
-      java.lang.Object ref = sender_;
-      if (ref instanceof java.lang.String) {
+      Object ref = sender_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         sender_ = b;
         return b;
       } else {
@@ -488,7 +497,7 @@ public final class Message {
     }
 
     public static final int CONTENT_FIELD_NUMBER = 5;
-    private volatile java.lang.Object content_;
+    private volatile Object content_;
     /**
      * <code>optional string content = 5;</code>
      */
@@ -498,14 +507,14 @@ public final class Message {
     /**
      * <code>optional string content = 5;</code>
      */
-    public java.lang.String getContent() {
-      java.lang.Object ref = content_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getContent() {
+      Object ref = content_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           content_ = s;
         }
@@ -517,11 +526,11 @@ public final class Message {
      */
     public com.google.protobuf.ByteString
         getContentBytes() {
-      java.lang.Object ref = content_;
-      if (ref instanceof java.lang.String) {
+      Object ref = content_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         content_ = b;
         return b;
       } else {
@@ -530,7 +539,7 @@ public final class Message {
     }
 
     public static final int IP_FIELD_NUMBER = 6;
-    private volatile java.lang.Object ip_;
+    private volatile Object ip_;
     /**
      * <code>optional string ip = 6;</code>
      */
@@ -540,14 +549,14 @@ public final class Message {
     /**
      * <code>optional string ip = 6;</code>
      */
-    public java.lang.String getIp() {
-      java.lang.Object ref = ip_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getIp() {
+      Object ref = ip_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           ip_ = s;
         }
@@ -559,11 +568,11 @@ public final class Message {
      */
     public com.google.protobuf.ByteString
         getIpBytes() {
-      java.lang.Object ref = ip_;
-      if (ref instanceof java.lang.String) {
+      Object ref = ip_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         ip_ = b;
         return b;
       } else {
@@ -602,7 +611,7 @@ public final class Message {
     }
 
     public static final int RECEIVER_FIELD_NUMBER = 9;
-    private volatile java.lang.Object receiver_;
+    private volatile Object receiver_;
     /**
      * <code>optional string receiver = 9;</code>
      */
@@ -612,14 +621,14 @@ public final class Message {
     /**
      * <code>optional string receiver = 9;</code>
      */
-    public java.lang.String getReceiver() {
-      java.lang.Object ref = receiver_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getReceiver() {
+      Object ref = receiver_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           receiver_ = s;
         }
@@ -631,11 +640,11 @@ public final class Message {
      */
     public com.google.protobuf.ByteString
         getReceiverBytes() {
-      java.lang.Object ref = receiver_;
-      if (ref instanceof java.lang.String) {
+      Object ref = receiver_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         receiver_ = b;
         return b;
       } else {
@@ -741,53 +750,53 @@ public final class Message {
     }
 
     private static final long serialVersionUID = 0L;
-    public static com.im.sdk.protocal.Message.Data parseFrom(
+    public static Data parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.im.sdk.protocal.Message.Data parseFrom(
+    public static Data parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.im.sdk.protocal.Message.Data parseFrom(byte[] data)
+    public static Data parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.im.sdk.protocal.Message.Data parseFrom(
+    public static Data parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.im.sdk.protocal.Message.Data parseFrom(java.io.InputStream input)
+    public static Data parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.im.sdk.protocal.Message.Data parseFrom(
+    public static Data parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static com.im.sdk.protocal.Message.Data parseDelimitedFrom(java.io.InputStream input)
+    public static Data parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static com.im.sdk.protocal.Message.Data parseDelimitedFrom(
+    public static Data parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static com.im.sdk.protocal.Message.Data parseFrom(
+    public static Data parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.im.sdk.protocal.Message.Data parseFrom(
+    public static Data parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -798,7 +807,7 @@ public final class Message {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.im.sdk.protocal.Message.Data prototype) {
+    public static Builder newBuilder(Data prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -806,9 +815,9 @@ public final class Message {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -818,17 +827,17 @@ public final class Message {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.im.sdk.protocal.Data)
-        com.im.sdk.protocal.Message.DataOrBuilder {
+        DataOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.im.sdk.protocal.Message.internal_static_com_im_sdk_protocal_Data_descriptor;
+        return Message.internal_static_com_im_sdk_protocal_Data_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.im.sdk.protocal.Message.internal_static_com_im_sdk_protocal_Data_fieldAccessorTable
+        return Message.internal_static_com_im_sdk_protocal_Data_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.im.sdk.protocal.Message.Data.class, com.im.sdk.protocal.Message.Data.Builder.class);
+                Data.class, Builder.class);
       }
 
       // Construct using com.im.sdk.protocal.Message.Data.newBuilder()
@@ -837,7 +846,7 @@ public final class Message {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -870,23 +879,23 @@ public final class Message {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.im.sdk.protocal.Message.internal_static_com_im_sdk_protocal_Data_descriptor;
+        return Message.internal_static_com_im_sdk_protocal_Data_descriptor;
       }
 
-      public com.im.sdk.protocal.Message.Data getDefaultInstanceForType() {
-        return com.im.sdk.protocal.Message.Data.getDefaultInstance();
+      public Data getDefaultInstanceForType() {
+        return Data.getDefaultInstance();
       }
 
-      public com.im.sdk.protocal.Message.Data build() {
-        com.im.sdk.protocal.Message.Data result = buildPartial();
+      public Data build() {
+        Data result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.im.sdk.protocal.Message.Data buildPartial() {
-        com.im.sdk.protocal.Message.Data result = new com.im.sdk.protocal.Message.Data(this);
+      public Data buildPartial() {
+        Data result = new Data(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -931,16 +940,16 @@ public final class Message {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.im.sdk.protocal.Message.Data) {
-          return mergeFrom((com.im.sdk.protocal.Message.Data)other);
+        if (other instanceof Data) {
+          return mergeFrom((Data)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.im.sdk.protocal.Message.Data other) {
-        if (other == com.im.sdk.protocal.Message.Data.getDefaultInstance()) return this;
+      public Builder mergeFrom(Data other) {
+        if (other == Data.getDefaultInstance()) return this;
         if (other.hasCmd()) {
           setCmd(other.getCmd());
         }
@@ -997,11 +1006,11 @@ public final class Message {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.im.sdk.protocal.Message.Data parsedMessage = null;
+        Data parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.im.sdk.protocal.Message.Data) e.getUnfinishedMessage();
+          parsedMessage = (Data) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -1076,7 +1085,7 @@ public final class Message {
         return this;
       }
 
-      private java.lang.Object id_ = "";
+      private Object id_ = "";
       /**
        * <code>optional string id = 3;</code>
        */
@@ -1086,18 +1095,18 @@ public final class Message {
       /**
        * <code>optional string id = 3;</code>
        */
-      public java.lang.String getId() {
-        java.lang.Object ref = id_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getId() {
+        Object ref = id_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             id_ = s;
           }
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -1105,11 +1114,11 @@ public final class Message {
        */
       public com.google.protobuf.ByteString
           getIdBytes() {
-        java.lang.Object ref = id_;
+        Object ref = id_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           id_ = b;
           return b;
         } else {
@@ -1120,7 +1129,7 @@ public final class Message {
        * <code>optional string id = 3;</code>
        */
       public Builder setId(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1152,7 +1161,7 @@ public final class Message {
         return this;
       }
 
-      private java.lang.Object sender_ = "";
+      private Object sender_ = "";
       /**
        * <code>optional string sender = 4;</code>
        */
@@ -1162,18 +1171,18 @@ public final class Message {
       /**
        * <code>optional string sender = 4;</code>
        */
-      public java.lang.String getSender() {
-        java.lang.Object ref = sender_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getSender() {
+        Object ref = sender_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             sender_ = s;
           }
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -1181,11 +1190,11 @@ public final class Message {
        */
       public com.google.protobuf.ByteString
           getSenderBytes() {
-        java.lang.Object ref = sender_;
+        Object ref = sender_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           sender_ = b;
           return b;
         } else {
@@ -1196,7 +1205,7 @@ public final class Message {
        * <code>optional string sender = 4;</code>
        */
       public Builder setSender(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1228,7 +1237,7 @@ public final class Message {
         return this;
       }
 
-      private java.lang.Object content_ = "";
+      private Object content_ = "";
       /**
        * <code>optional string content = 5;</code>
        */
@@ -1238,18 +1247,18 @@ public final class Message {
       /**
        * <code>optional string content = 5;</code>
        */
-      public java.lang.String getContent() {
-        java.lang.Object ref = content_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getContent() {
+        Object ref = content_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             content_ = s;
           }
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -1257,11 +1266,11 @@ public final class Message {
        */
       public com.google.protobuf.ByteString
           getContentBytes() {
-        java.lang.Object ref = content_;
+        Object ref = content_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           content_ = b;
           return b;
         } else {
@@ -1272,7 +1281,7 @@ public final class Message {
        * <code>optional string content = 5;</code>
        */
       public Builder setContent(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1304,7 +1313,7 @@ public final class Message {
         return this;
       }
 
-      private java.lang.Object ip_ = "";
+      private Object ip_ = "";
       /**
        * <code>optional string ip = 6;</code>
        */
@@ -1314,18 +1323,18 @@ public final class Message {
       /**
        * <code>optional string ip = 6;</code>
        */
-      public java.lang.String getIp() {
-        java.lang.Object ref = ip_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getIp() {
+        Object ref = ip_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             ip_ = s;
           }
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -1333,11 +1342,11 @@ public final class Message {
        */
       public com.google.protobuf.ByteString
           getIpBytes() {
-        java.lang.Object ref = ip_;
+        Object ref = ip_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           ip_ = b;
           return b;
         } else {
@@ -1348,7 +1357,7 @@ public final class Message {
        * <code>optional string ip = 6;</code>
        */
       public Builder setIp(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1444,7 +1453,7 @@ public final class Message {
         return this;
       }
 
-      private java.lang.Object receiver_ = "";
+      private Object receiver_ = "";
       /**
        * <code>optional string receiver = 9;</code>
        */
@@ -1454,18 +1463,18 @@ public final class Message {
       /**
        * <code>optional string receiver = 9;</code>
        */
-      public java.lang.String getReceiver() {
-        java.lang.Object ref = receiver_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getReceiver() {
+        Object ref = receiver_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             receiver_ = s;
           }
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -1473,11 +1482,11 @@ public final class Message {
        */
       public com.google.protobuf.ByteString
           getReceiverBytes() {
-        java.lang.Object ref = receiver_;
+        Object ref = receiver_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           receiver_ = b;
           return b;
         } else {
@@ -1488,7 +1497,7 @@ public final class Message {
        * <code>optional string receiver = 9;</code>
        */
       public Builder setReceiver(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1524,12 +1533,12 @@ public final class Message {
     }
 
     // @@protoc_insertion_point(class_scope:com.im.sdk.protocal.Data)
-    private static final com.im.sdk.protocal.Message.Data DEFAULT_INSTANCE;
+    private static final Data DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.im.sdk.protocal.Message.Data();
+      DEFAULT_INSTANCE = new Data();
     }
 
-    public static com.im.sdk.protocal.Message.Data getDefaultInstance() {
+    public static Data getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1552,12 +1561,12 @@ public final class Message {
       }
     };
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<Data> getParserForType() {
       return PARSER;
     }
 
-    public com.im.sdk.protocal.Message.Data getDefaultInstanceForType() {
+    public Data getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1576,16 +1585,17 @@ public final class Message {
   private static com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    java.lang.String[] descriptorData = {
-      "\n\rmessage.proto\022\023com.im.sdk.protocal\"\217\002\n" +
+    String[] descriptorData = {
+      "\n\rmessage.proto\022\023com.im.sdk.protocal\"\242\002\n" +
       "\004Data\022\013\n\003cmd\030\001 \002(\005\022\023\n\013create_time\030\002 \002(\003\022" +
       "\n\n\002id\030\003 \001(\t\022\016\n\006sender\030\004 \001(\t\022\017\n\007content\030\005" +
       " \001(\t\022\n\n\002ip\030\006 \001(\t\022\014\n\004port\030\007 \001(\005\022\025\n\rlogin_" +
-      "success\030\010 \001(\010\022\020\n\010receiver\030\t \001(\t\"u\n\003Cmd\022\t" +
-      "\n\005LOGIN\020\000\022\n\n\006LOGOUT\020\001\022\020\n\014OTHER_LOGGIN\020\002\022" +
-      "\r\n\tHEARTBEAT\020\003\022\014\n\010CHAT_MSG\020\004\022\021\n\rCHAT_MSG" +
-      "_ECHO\020\005\022\025\n\021CHAT_OFFLINE_MSGS\020\006B\036\n\023com.im" +
-      ".sdk.protocalB\007Message"
+      "success\030\010 \001(\010\022\020\n\010receiver\030\t \001(\t\"\207\001\n\003Cmd\022" +
+      "\t\n\005LOGIN\020\000\022\n\n\006LOGOUT\020\001\022\020\n\014OTHER_LOGGIN\020\002" +
+      "\022\r\n\tHEARTBEAT\020\003\022\014\n\010CHAT_MSG\020\004\022\021\n\rCHAT_MS" +
+      "G_ECHO\020\005\022\025\n\021CHAT_OFFLINE_MSGS\020\006\022\020\n\014MINE_" +
+      "FRIENDS\020\007B\036\n\023com.im.sdk.protocalB\007Messag" +
+      "e"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1604,7 +1614,7 @@ public final class Message {
     internal_static_com_im_sdk_protocal_Data_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_im_sdk_protocal_Data_descriptor,
-        new java.lang.String[] { "Cmd", "CreateTime", "Id", "Sender", "Content", "Ip", "Port", "LoginSuccess", "Receiver", });
+        new String[] { "Cmd", "CreateTime", "Id", "Sender", "Content", "Ip", "Port", "LoginSuccess", "Receiver", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
