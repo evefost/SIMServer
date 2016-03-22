@@ -42,15 +42,7 @@ public class IMServerHandler extends ChannelHandlerAdapter {
 	public void channelActive(ChannelHandlerContext ctx) {
 
 		System.out.println("channelActive 已连上服务器 发送聊天服务地址给客户端 :"+ctx.channel().remoteAddress());
-		Message.Data.Builder data = Message.Data.newBuilder();
-		data.setCmd(Cmd.LOGIN_VALUE);
-		data.setCreateTime(System.currentTimeMillis());
-		String ip = "192.168.1.38";
-		int port = 34567;
-		data.setContent("你好，我是服务端_请登录:" + ip + ":" + port + "，60秒内不登录将被断开");
-		data.setIp(ip);
-		data.setPort(port);
-		ctx.writeAndFlush(data);
+		
 	}
 
 	@Override
@@ -79,6 +71,9 @@ public class IMServerHandler extends ChannelHandlerAdapter {
 			break;
 		case Cmd.HEARTBEAT_VALUE:
 			System.out.println("channelRead  心跳消息:");
+			break;
+		case Cmd.BIND_DEVICE_VALUE:
+			System.out.println("channelRead  绑定device:");
 			break;
 		default:
 			break;
