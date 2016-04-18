@@ -3,9 +3,9 @@
   type="WEB"
   name="cim-server"
   id="myeclipse.1329027071311"
-  context-root="/cim-server"
+  context-root="/IMserver"
   j2ee-spec="5.0"
-  archive="cim-server.war">
+  archive="IMserver.war">
   <attributes>
     <attribute name="webrootdir" value="WebRoot" />
   </attributes>
