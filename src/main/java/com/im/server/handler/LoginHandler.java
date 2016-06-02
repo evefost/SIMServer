@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.UUID;
 
 import com.farsunset.cim.server.constant.CIMConstant;
-import com.farsunset.cim.server.session.CIMSession;
+import com.farsunset.cim.server.session.IMSession;
 import com.farsunset.cim.server.session.DefaultSessionManager;
 import com.farsunset.cim.util.ContextHolder;
 import com.im.sdk.protocal.Message;
@@ -24,7 +24,7 @@ public class LoginHandler implements IRequestHandler {
 			DefaultSessionManager sessionManager = ((DefaultSessionManager) ContextHolder
 					.getBean("defaultSessionManager"));
 			// 创建新的session
-			CIMSession newSession = new CIMSession(ctx.channel());
+			IMSession newSession = new IMSession(ctx.channel());
 			newSession.setAccount(data.getSender());
 			newSession.setGid(UUID.randomUUID().toString());
 			newSession.setHost(InetAddress.getLocalHost().getHostAddress());
@@ -33,7 +33,7 @@ public class LoginHandler implements IRequestHandler {
 			newSession.setHeartbeat(System.currentTimeMillis());
 
 			// 由于客户端断线服务端可能会无法获知的情况，客户端重连时，需要关闭旧的连接
-			CIMSession oldSession = sessionManager.getSession(data.getSender());
+			IMSession oldSession = sessionManager.getSession(data.getSender());
 			if (oldSession != null && !oldSession.equals(newSession)) {
 				System.out.println("LoginHandler 则让另一个终端下线:" + data.getSender());
 				oldSession.removeTag(CIMConstant.SESSION_KEY);
@@ -75,7 +75,7 @@ public class LoginHandler implements IRequestHandler {
 	}
 
 	/**检查并发送离线消息*/
-	private void checkAndSendOffLineMessages(CIMSession newSession) {
+	private void checkAndSendOffLineMessages(IMSession newSession) {
 		
 		List<Message.Data.Builder> mList = null;
 		if(mList != null && mList.size()>0){

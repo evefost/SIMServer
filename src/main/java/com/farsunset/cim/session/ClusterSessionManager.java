@@ -3,7 +3,7 @@ package com.farsunset.cim.session;
 
 import java.util.Collection;
 
-import com.farsunset.cim.server.session.CIMSession;
+import com.farsunset.cim.server.session.IMSession;
 import com.farsunset.cim.server.session.SessionManager;
 
 /** 
@@ -23,7 +23,7 @@ public class ClusterSessionManager implements SessionManager{
     /**
      *  
      */
-    public void addSession(String account,CIMSession session) {
+    public void addSession(String account,IMSession session) {
          
         
         /**
@@ -33,7 +33,7 @@ public class ClusterSessionManager implements SessionManager{
     }
 
      
-    public CIMSession getSession(String account) {
+    public IMSession getSession(String account) {
     	
     	//这里查询数据库 
     	 /*CIMSession session = database.getSession(account);
@@ -44,13 +44,13 @@ public class ClusterSessionManager implements SessionManager{
     
 
      
-    public Collection<CIMSession> getSessions() {
+    public Collection<IMSession> getSessions() {
     	/*//这里查询数据库 
    	 return database.getSessions();*/
    	return null;
     }
  
-    public void  removeSession(CIMSession session) {
+    public void  removeSession(IMSession session) {
         
     	 
     	//database.removeSession(session.getAttribute(CIMConstant.SESSION_KEY));*/
@@ -64,7 +64,7 @@ public class ClusterSessionManager implements SessionManager{
     }
     
     
-    public boolean containsCIMSession(CIMSession ios)
+    public boolean containsCIMSession(IMSession ios)
     {
     	//return database.containsCIMSession(session.getAccount());
     	
@@ -72,7 +72,7 @@ public class ClusterSessionManager implements SessionManager{
     }
 
     
-    public String getAccount(CIMSession ios)
+    public String getAccount(IMSession ios)
     {
        return 	ios.getAccount();
     }

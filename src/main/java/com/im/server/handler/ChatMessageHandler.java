@@ -1,6 +1,6 @@
 package com.im.server.handler;
 
-import com.farsunset.cim.server.session.CIMSession;
+import com.farsunset.cim.server.session.IMSession;
 import com.farsunset.cim.server.session.DefaultSessionManager;
 import com.farsunset.cim.util.ContextHolder;
 import com.im.sdk.protocal.Message;
@@ -24,7 +24,7 @@ public class ChatMessageHandler implements IRequestHandler {
 		
 		DefaultSessionManager sessionManager = ((DefaultSessionManager) ContextHolder
 				.getBean("defaultSessionManager"));
-		CIMSession receiverSession = sessionManager.getSession(data.getReceiver());
+		IMSession receiverSession = sessionManager.getSession(data.getReceiver());
 		if(receiverSession != null){
 			receiverSession.write(data);
 		}else{

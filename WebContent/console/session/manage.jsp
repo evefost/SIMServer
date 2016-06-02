@@ -1,20 +1,20 @@
 <%@ page language="java" pageEncoding="utf-8"%>
 <%@ page import="java.util.Collection"%>
-<%@ page import="com.farsunset.cim.server.session.CIMSession"%>
+<%@ page import="com.farsunset.cim.server.session.IMSession"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path;
 			 
-	Collection<CIMSession> sessionList  = (Collection<CIMSession>)request.getAttribute("sessionList");
+	Collection<IMSession> sessionList  = (Collection<IMSession>)request.getAttribute("sessionList");
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-		<title>CIM管理系统</title>
+		<title>IM管理系统</title>
 
 		<link charset="utf-8" rel="stylesheet" href="<%=basePath%>/resource/css/webbase.css" />
 		<link charset="utf-8" rel="stylesheet" href="<%=basePath%>/resource/css/main-layout.css" />
@@ -103,7 +103,7 @@
 							<tbody id="checkPlanList">
 
                                 <%
-                                  for(CIMSession ios:sessionList)
+                                  for(IMSession ios:sessionList)
                                   {
                                     if(ios.getAccount()!=null)
                                     {

@@ -16,7 +16,7 @@ import com.farsunset.cim.server.constant.CIMConstant;
  * @author 3979434@qq.com
  */
 
-public class CIMSession  implements Serializable{
+public class IMSession  implements Serializable{
 
 	/**
 	 * 
@@ -39,7 +39,7 @@ public class CIMSession  implements Serializable{
 	
 	private Long heartbeat;//心跳时间
 	
-	public CIMSession(Channel session) {
+	public IMSession(Channel session) {
 		this.session = session;
 		this.nid = session.id().asLongText();
 	}
@@ -223,9 +223,9 @@ public class CIMSession  implements Serializable{
 	 
 	public boolean equals(Object o) {
         
-		if (o instanceof CIMSession) {
+		if (o instanceof IMSession) {
 			
-			CIMSession t = (CIMSession) o;
+			IMSession t = (IMSession) o;
 			if(!t.isLocalhost())
 			{
 				return false;

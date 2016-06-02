@@ -10,7 +10,7 @@ import com.farsunset.cim.server.handler.CIMRequestHandler;
 import com.farsunset.cim.server.mutual.Message;
 import com.farsunset.cim.server.mutual.ReplyBody;
 import com.farsunset.cim.server.mutual.SentBody;
-import com.farsunset.cim.server.session.CIMSession;
+import com.farsunset.cim.server.session.IMSession;
 import com.farsunset.cim.server.session.DefaultSessionManager;
 import com.farsunset.cim.util.ContextHolder;
  
@@ -23,7 +23,7 @@ import com.farsunset.cim.util.ContextHolder;
 public class BindHandler implements CIMRequestHandler {
 
 	protected final Logger logger = Logger.getLogger(BindHandler.class);
-	public ReplyBody process(CIMSession newSession, SentBody message) {
+	public ReplyBody process(IMSession newSession, SentBody message) {
 		
 		ReplyBody reply = new ReplyBody();
 		DefaultSessionManager sessionManager= ((DefaultSessionManager) ContextHolder.getBean("defaultSessionManager"));
@@ -44,7 +44,7 @@ public class BindHandler implements CIMRequestHandler {
 		   /**
     		 * 由于客户端断线服务端可能会无法获知的情况，客户端重连时，需要关闭旧的连接
 			 */
-			CIMSession oldSession  = sessionManager.getSession(account);
+			IMSession oldSession  = sessionManager.getSession(account);
 		    //如果是账号已经在另一台终端登录。则让另一个终端下线
     		if(oldSession!=null&&!oldSession.equals(newSession))
 			{

@@ -7,7 +7,7 @@ import com.farsunset.cim.server.constant.CIMConstant;
 import com.farsunset.cim.server.handler.CIMRequestHandler;
 import com.farsunset.cim.server.mutual.ReplyBody;
 import com.farsunset.cim.server.mutual.SentBody;
-import com.farsunset.cim.server.session.CIMSession;
+import com.farsunset.cim.server.session.IMSession;
 import com.farsunset.cim.server.session.DefaultSessionManager;
 import com.farsunset.cim.util.ContextHolder;
 
@@ -20,7 +20,7 @@ public class SessionClosedHandler implements CIMRequestHandler {
 
 	protected final Logger logger = Logger.getLogger(SessionClosedHandler.class);
 
-	public ReplyBody process(CIMSession ios, SentBody message) {
+	public ReplyBody process(IMSession ios, SentBody message) {
 
 		DefaultSessionManager sessionManager  =  ((DefaultSessionManager) ContextHolder.getBean("defaultSessionManager"));
 

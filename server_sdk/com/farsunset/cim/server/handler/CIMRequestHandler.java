@@ -7,9 +7,9 @@ package com.farsunset.cim.server.handler;
  */
 import com.farsunset.cim.server.mutual.ReplyBody;
 import com.farsunset.cim.server.mutual.SentBody;
-import com.farsunset.cim.server.session.CIMSession;
+import com.farsunset.cim.server.session.IMSession;
  
 public    interface   CIMRequestHandler  {
 
-    public abstract ReplyBody process(CIMSession session,SentBody message);
+    public abstract ReplyBody process(IMSession session,SentBody message);
 }

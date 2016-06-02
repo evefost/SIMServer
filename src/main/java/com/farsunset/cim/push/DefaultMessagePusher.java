@@ -5,7 +5,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import com.farsunset.cim.server.mutual.Message;
-import com.farsunset.cim.server.session.CIMSession;
+import com.farsunset.cim.server.session.IMSession;
 import com.farsunset.cim.server.session.DefaultSessionManager;
 
 /**
@@ -30,7 +30,7 @@ public class DefaultMessagePusher implements  CIMMessagePusher {
      * @param msg
      */
 	public void pushMessageToUser(Message msg) {
-		CIMSession session = sessionManager.getSession(msg.getReceiver());
+		IMSession session = sessionManager.getSession(msg.getReceiver());
 		
 		/*服务器集群时，可以在此 判断当前session是否连接于本台服务器，如果是，继续往下走，如果不是，将此消息发往当前session连接的服务器并 return
 		if(!session.isLocalhost()){//判断当前session是否连接于本台服务器，如不是

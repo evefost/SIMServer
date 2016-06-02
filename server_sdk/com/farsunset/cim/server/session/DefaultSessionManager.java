@@ -15,7 +15,7 @@ import com.farsunset.cim.server.constant.CIMConstant;
 public class DefaultSessionManager implements SessionManager{
 
 
-    private static HashMap<String,CIMSession> sessions =new  HashMap<String,CIMSession>();
+    private static HashMap<String,IMSession> sessions =new  HashMap<String,IMSession>();
     
     
     private static final AtomicInteger connectionsCounter = new AtomicInteger(0);
@@ -25,7 +25,7 @@ public class DefaultSessionManager implements SessionManager{
     /**
      *  
      */
-    public void addSession(String account,CIMSession session) {
+    public void addSession(String account,IMSession session) {
         if(session!=null)
         {
         	session.setTag(CIMConstant.SESSION_KEY, account);
@@ -36,7 +36,7 @@ public class DefaultSessionManager implements SessionManager{
     }
 
      
-    public CIMSession getSession(String account) {
+    public IMSession getSession(String account) {
     	
     	 
        return sessions.get(account);
@@ -45,11 +45,11 @@ public class DefaultSessionManager implements SessionManager{
     
 
      
-    public Collection<CIMSession> getSessions() {
+    public Collection<IMSession> getSessions() {
         return sessions.values();
     }
  
-    public void  removeSession(CIMSession session) {
+    public void  removeSession(IMSession session) {
         
     	 
     	sessions.remove(session.getTag(CIMConstant.SESSION_KEY));
@@ -63,13 +63,13 @@ public class DefaultSessionManager implements SessionManager{
     }
     
     
-    public boolean containsCIMSession(CIMSession ios)
+    public boolean containsCIMSession(IMSession ios)
     {
     	return sessions.containsKey(ios.getTag(CIMConstant.SESSION_KEY)) || sessions.containsValue(ios);
     }
 
     
-    public String getAccount(CIMSession ios)
+    public String getAccount(IMSession ios)
     {
     	 if(ios.getTag(CIMConstant.SESSION_KEY)==null)
     	 {

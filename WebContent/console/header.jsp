@@ -73,13 +73,13 @@
 		</div>
 		<ul class="list-group">
 			<li class="list-group-item">
-				CIM即时通讯后台管理系统
+				IM即时通讯后台管理系统
 			</li>
 			<li class="list-group-item">
-				Email:3979434@qq.com
+				Email:450463362@qq.com
 			</li>
 			<li class="list-group-item">
-				QQ:3979434
+				QQ:450463362
 			</li>
 		</ul>
 	</div>

@@ -24,7 +24,7 @@ import com.farsunset.cim.server.filter.ServerMessageEncoder;
 import com.farsunset.cim.server.handler.CIMRequestHandler;
 import com.farsunset.cim.server.mutual.ReplyBody;
 import com.farsunset.cim.server.mutual.SentBody;
-import com.farsunset.cim.server.session.CIMSession;
+import com.farsunset.cim.server.session.IMSession;
  
 @io.netty.channel.ChannelHandler.Sharable 
 public class CIMNioSocketAcceptor extends SimpleChannelInboundHandler<Object>{
@@ -116,7 +116,7 @@ public class CIMNioSocketAcceptor extends SimpleChannelInboundHandler<Object>{
 			ctx.writeAndFlush(CIMConstant.FLEX_POLICY_RESPONSE);
 			return ;
 		}
-		CIMSession cimSession =new  CIMSession(ctx.channel());
+		IMSession cimSession =new  IMSession(ctx.channel());
 		ReplyBody reply = new ReplyBody();
 		SentBody body = (SentBody)msg;
 		String key = body.getKey();
@@ -140,7 +140,7 @@ public class CIMNioSocketAcceptor extends SimpleChannelInboundHandler<Object>{
 	@Override
 	public void channelInactive(ChannelHandlerContext ctx) throws Exception {
 
-		CIMSession cimSession =new  CIMSession(ctx.channel());
+		IMSession cimSession =new  IMSession(ctx.channel());
 		try{
 			logger.debug("channelInactive()... from "+cimSession.getRemoteAddress());
 			CIMRequestHandler handler = handlers.get(KEY_CLIENT_CIMSESSION_CLOSED);

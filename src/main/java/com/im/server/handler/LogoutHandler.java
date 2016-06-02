@@ -1,7 +1,7 @@
 package com.im.server.handler;
 
 import com.farsunset.cim.server.constant.CIMConstant;
-import com.farsunset.cim.server.session.CIMSession;
+import com.farsunset.cim.server.session.IMSession;
 import com.farsunset.cim.server.session.DefaultSessionManager;
 import com.farsunset.cim.util.ContextHolder;
 import com.im.sdk.protocal.Message;
@@ -22,7 +22,7 @@ public class LogoutHandler implements IRequestHandler {
 	
 		try {
 			DefaultSessionManager sessionManager  =  ((DefaultSessionManager) ContextHolder.getBean("defaultSessionManager"));
-			CIMSession ios = sessionManager.getSession(data.getSender());
+			IMSession ios = sessionManager.getSession(data.getSender());
 			String account =ios.getTag(CIMConstant.SESSION_KEY).toString();
 			ios.removeTag(CIMConstant.SESSION_KEY);
 			ios.close(true);
