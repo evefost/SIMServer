@@ -1,11 +1,11 @@
 
-package com.xie.im.session.manager;
+package com.im.manage.session;
 
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import com.farsunset.cim.server.constant.CIMConstant;
+import com.im.constant.CIMConstant;
 import com.im.server.core.IMSession;
 
 /**

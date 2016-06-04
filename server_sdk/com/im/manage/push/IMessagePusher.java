@@ -1,4 +1,4 @@
-package com.xie.im.push;
+package com.im.manage.push;
 
 import com.im.sdk.protocal.Message;
 

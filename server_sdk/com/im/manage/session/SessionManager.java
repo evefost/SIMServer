@@ -1,5 +1,5 @@
  
-package com.xie.im.session.manager;
+package com.im.manage.session;
 
 import java.util.Collection;
 

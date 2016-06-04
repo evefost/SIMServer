@@ -1,12 +1,12 @@
 package com.im.server.handler;
 
-import com.farsunset.cim.server.constant.CIMConstant;
+import com.im.constant.CIMConstant;
+import com.im.manage.session.ContextHolder;
+import com.im.manage.session.SessionManager;
 import com.im.sdk.protocal.Message;
 import com.im.sdk.protocal.Message.Data;
 import com.im.sdk.protocal.Message.Data.Cmd;
 import com.im.server.core.IMSession;
-import com.xie.im.session.manager.ContextHolder;
-import com.xie.im.session.manager.SessionManager;
 
 import io.netty.channel.ChannelHandlerContext;
 

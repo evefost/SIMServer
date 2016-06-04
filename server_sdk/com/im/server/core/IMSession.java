@@ -5,7 +5,7 @@ import java.net.InetAddress;
 import java.net.SocketAddress;
 import java.net.UnknownHostException;
 
-import com.farsunset.cim.server.constant.CIMConstant;
+import com.im.constant.CIMConstant;
 
 import io.netty.channel.Channel;
 import io.netty.util.AttributeKey;

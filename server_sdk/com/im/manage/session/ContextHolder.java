@@ -1,4 +1,4 @@
-package com.xie.im.session.manager;
+package com.im.manage.session;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

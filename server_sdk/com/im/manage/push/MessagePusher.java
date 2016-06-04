@@ -1,11 +1,11 @@
-package com.xie.im.push;
+package com.im.manage.push;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import com.im.manage.session.SessionManager;
 import com.im.sdk.protocal.Message;
 import com.im.server.core.IMSession;
-import com.xie.im.session.manager.SessionManager;
 
 /**
  * 推送消息接口实现
