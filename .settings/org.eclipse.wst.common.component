@@ -4,6 +4,7 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/server_sdk"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/webmanage"/>
         <property name="context-root" value="IMserver"/>
         <property name="java-output-path" value="/IMserver/WebRoot/WEB-INF/classes"/>
     </wb-module>
