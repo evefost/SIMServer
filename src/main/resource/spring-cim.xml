@@ -44,5 +44,5 @@
 
 
 	<!-- 这里可以自行实现com.farsunset.cim.nio.session.SessionManager接口，实现自己的session管理器 -->
-	<bean id="defaultSessionManager" class="com.farsunset.cim.server.session.DefaultSessionManager" />
+	<bean id="defaultSessionManager" class="com.im.manage.session.DefaultSessionManager" />
 </beans>

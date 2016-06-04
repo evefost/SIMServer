@@ -15,7 +15,7 @@
 		</action>
 	</package> 
 	 
-	<package name="cgi" extends="struts-default" namespace="/admin">
+	<package name="cgi" extends="struts-default" namespace="/cgi">
 		<action name="message_*" class="com.im.manage.push.MessageAction" method="{1}"></action>
 	</package> 
 </struts>

@@ -12,5 +12,5 @@
 	  http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
 	"
 	>
-	<bean id="contextHolder" class="com.farsunset.cim.util.ContextHolder"/>
+	<bean id="contextHolder" class="com.im.manage.session.ContextHolder"/>
 </beans>
