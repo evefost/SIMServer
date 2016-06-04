@@ -1,0 +1,14 @@
+使用Protocol buffer的编译器
+现在，你已经有一个.proto文件了，接下来就需要生成class来发送和读取AddressBook消息
+(包含Person以及PhoneNumber)，
+为了完成这件工作，你需要调用protocol buffer的编译器的proto指令来编译你的.proto文件。语法如下：
+protoc -I=$SRC --java_out=$DIR File
+$SRC表示资源文件夹，$DIR表示目标文件夹，File是你要编译的.proto文件，当然，
+你也可以定位到这个资源目录中然后只调用proto --java_out=$DIR File即可。
+(需要注意的是生成的class文件会存在于你所填的目标文件夹下的java_package所指向的目录中，
+如果你想把目标文件夹指向当前目录，
+你可以使用“.”来代替，例如对于该例，我们先定位到这个目录下，然后运行proto --java_out=. addressbook.proto)：
+编译器下载地址
+https://github.com/google/protobuf/releases
+
+protoc  --java_out=F:\即时聊天\protoc-3.0.0-alpha-3-win32 message.proto
