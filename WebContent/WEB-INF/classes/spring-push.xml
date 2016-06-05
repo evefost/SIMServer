@@ -13,7 +13,7 @@
 	"
 	>
 	
-	<bean id="messagePusher" class="com.farsunset.cim.push.DefaultMessagePusher">
+	<bean id="messagePusher" class="com.im.manage.push.MessagePusher">
 		<property name="sessionManager" ref="defaultSessionManager"/>
 	</bean>
 	 

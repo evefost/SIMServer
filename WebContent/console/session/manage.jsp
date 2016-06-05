@@ -1,6 +1,6 @@
 <%@ page language="java" pageEncoding="utf-8"%>
 <%@ page import="java.util.Collection"%>
-<%@ page import="com.farsunset.cim.server.session.IMSession"%>
+<%@ page import="com.im.server.core.IMSession"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
