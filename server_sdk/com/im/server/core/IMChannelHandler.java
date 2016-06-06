@@ -18,7 +18,6 @@ package com.im.server.core;
 import com.im.sdk.protocal.Message;
 import com.im.sdk.protocal.Message.Data;
 import com.im.sdk.protocal.Message.Data.Cmd;
-import com.im.server.handler.IRequestHandler;
 import com.im.server.util.HandllerUtil;
 
 import io.netty.channel.ChannelHandler.Sharable;
@@ -29,12 +28,12 @@ import io.netty.channel.ChannelHandlerContext;
  * Handler implementation for the echo server.
  */
 @Sharable
-public class IMServerHandler extends ChannelHandlerAdapter {
+public class IMChannelHandler extends ChannelHandlerAdapter {
 
 	/**
 	 * Creates a client-side handler.
 	 */
-	public IMServerHandler() {
+	public IMChannelHandler() {
 
 	}
 
@@ -50,7 +49,7 @@ public class IMServerHandler extends ChannelHandlerAdapter {
 
 		Message.Data data = (Data) msg;
 		showMessageInfoLog(ctx, data);
-		IRequestHandler handler = HandllerUtil.getIRequestHandler(data.getCmd());
+		ServerHandler handler = HandllerUtil.getServerHandler(data.getCmd());
 		System.out.println("channelRead handler :" + handler);
 		if (handler != null) {
 			handler.hand(ctx, data);

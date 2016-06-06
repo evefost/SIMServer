@@ -7,13 +7,13 @@ import java.util.Map;
 
 import org.junit.Test;
 
-import com.im.server.handler.IRequestHandler;
+import com.im.server.core.ServerHandler;
 
 public class HandllerUtil {
 
-	private static Map<Integer, IRequestHandler> handlers = new HashMap<Integer, IRequestHandler>();;
+	private static Map<Integer, ServerHandler> handlers = new HashMap<Integer, ServerHandler>();;
 
-	public static IRequestHandler getIRequestHandler(Integer cmd) {
+	public static ServerHandler getServerHandler(Integer cmd) {
 		return handlers.get(cmd);
 	}
 
@@ -22,8 +22,8 @@ public class HandllerUtil {
 		System.out.println("load handler ===========================>>>>>>>>>>>");
 		System.out.println("load handler ===========================>>>>>>>>>>>");
 		try {
-			System.out.println("load handler of IRequestHandler");
-			Class cls = IRequestHandler.class;
+			System.out.println("load handler of ServerHandler");
+			Class cls = ServerHandler.class;
 			List<String> packages = new ArrayList<String>();
 			packages.add("com.im.server.handler");
 		
@@ -35,7 +35,7 @@ public class HandllerUtil {
 			for (Class<?> c : tocalClasses) {
 				if (cls.isAssignableFrom(c) && !cls.equals(c)) {
 					System.out.println("handler[ " + c.getName() + " ]");
-					IRequestHandler instance = (IRequestHandler) c.newInstance();
+					ServerHandler instance = (ServerHandler) c.newInstance();
 					handlers.put(instance.getCmd(), instance);
 				}
 			}
@@ -55,8 +55,8 @@ public class HandllerUtil {
 	@Test
 	public void test2() {
 		try {
-			System.out.println("load handler of IRequestHandler");
-			Class cls = IRequestHandler.class;
+			System.out.println("load handler of ServerHandler");
+			Class cls = ServerHandler.class;
 			List<String> packages = new ArrayList<String>();
 			packages.add("com.im.server.handler");
 			List<Class<?>> tocalClasses = new ArrayList<Class<?>>();
@@ -67,7 +67,7 @@ public class HandllerUtil {
 			for (Class<?> c : tocalClasses) {
 				if (cls.isAssignableFrom(c) && !cls.equals(c)) {
 					System.out.println("handler[ " + c.getName() + " ]");
-					IRequestHandler instance = (IRequestHandler) c.newInstance();
+					ServerHandler instance = (ServerHandler) c.newInstance();
 					handlers.put(instance.getCmd(), instance);
 				}
 			}

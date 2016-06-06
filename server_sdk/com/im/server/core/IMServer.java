@@ -57,7 +57,7 @@ public final class IMServer {
 							ChannelPipeline p = ch.pipeline();
 							p.addLast(new ProtobufDecoder(Message.Data.getDefaultInstance()));
 							p.addLast(new ProtobufEncoder());
-							p.addLast(new IMServerHandler());
+							p.addLast(new IMChannelHandler());
 						}
 					});
 

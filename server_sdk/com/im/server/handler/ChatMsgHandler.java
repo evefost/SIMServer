@@ -6,10 +6,11 @@ import com.im.sdk.protocal.Message;
 import com.im.sdk.protocal.Message.Data;
 import com.im.sdk.protocal.Message.Data.Cmd;
 import com.im.server.core.IMSession;
+import com.im.server.core.ServerHandler;
 
 import io.netty.channel.ChannelHandlerContext;
 
-public class ChatMessageHandler implements IRequestHandler {
+public class ChatMsgHandler implements ServerHandler {
 
 	@Override
 	public void hand(ChannelHandlerContext ctx, Data data) {
