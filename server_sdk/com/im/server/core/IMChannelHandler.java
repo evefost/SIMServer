@@ -15,10 +15,10 @@
  */
 package com.im.server.core;
 
-import com.im.sdk.protocal.Message;
-import com.im.sdk.protocal.Message.Data;
-import com.im.sdk.protocal.Message.Data.Cmd;
-import com.im.server.util.HandllerUtil;
+import com.im.sdk.protocol.Message;
+import com.im.sdk.protocol.Message.Data;
+import com.im.sdk.protocol.Message.Data.Cmd;
+import com.im.server.util.ProtocolHandllerLoader;
 
 import io.netty.channel.ChannelHandler.Sharable;
 import io.netty.channel.ChannelHandlerAdapter;
@@ -49,10 +49,10 @@ public class IMChannelHandler extends ChannelHandlerAdapter {
 
 		Message.Data data = (Data) msg;
 		showMessageInfoLog(ctx, data);
-		ServerHandler handler = HandllerUtil.getServerHandler(data.getCmd());
+		ProtocolHandler handler = ProtocolHandllerLoader.getProtocolHandler(data.getCmd());
 		System.out.println("channelRead handler :" + handler);
 		if (handler != null) {
-			handler.hand(ctx, data);
+			handler.handleRequest(ctx, data);
 		}
 
 	}
@@ -85,7 +85,7 @@ public class IMChannelHandler extends ChannelHandlerAdapter {
 	 */
 	@Override
 	public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
-
+		//TODO 
 		 super.userEventTriggered(ctx, evt); 
 	}
 

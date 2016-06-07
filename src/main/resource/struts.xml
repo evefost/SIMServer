@@ -5,17 +5,19 @@
 <struts>
 	<constant name="struts-devModel" value="true" />
 	<constant name="struts.action.extension" value="action,do,api" />
-	<constant name="struts.multipart.maxSize" value="100000000"/> 
+	<constant name="struts.multipart.maxSize" value="100000000" />
 	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
-<constant name="struts.multipart.saveDir" value="/tmp"/>
-<constant name="struts.multipart.parser" value="jakarta"/>
-  <package name="admin" extends="struts-default" namespace="/admin">
-        <action name="session_*" class="com.im.manage.session.SessionAction" method="{1}">
-		  <result name="list" type="dispatcher">/console/session/manage.jsp</result>
+	<constant name="struts.multipart.saveDir" value="/tmp" />
+	<constant name="struts.multipart.parser" value="jakarta" />
+	<package name="admin" extends="struts-default" namespace="/admin">
+		<action name="session_*" class="com.im.manage.session.SessionAction"
+			method="{1}">
+			<result name="list" type="dispatcher">/console/session/manage.jsp</result>
 		</action>
-	</package> 
-	 
-	<package name="cgi" extends="struts-default" namespace="/cgi">
-		<action name="message_*" class="com.im.manage.push.MessageAction" method="{1}"></action>
-	</package> 
+	</package>
+
+	<package name="push" extends="struts-default" namespace="/push">
+		<action name="message_*" class="com.im.manage.push.MessageAction"
+			method="{1}"></action>
+	</package>
 </struts>

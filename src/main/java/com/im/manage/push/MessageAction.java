@@ -3,8 +3,8 @@ package com.im.manage.push;
 import org.apache.struts2.ServletActionContext;
 
 import com.im.manage.session.ContextHolder;
-import com.im.sdk.protocal.Message;
-import com.im.sdk.protocal.Message.Data.Cmd;
+import com.im.sdk.protocol.Message;
+import com.im.sdk.protocol.Message.Data.Cmd;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 /**

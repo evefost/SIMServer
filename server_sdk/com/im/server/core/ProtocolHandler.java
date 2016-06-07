@@ -1,6 +1,6 @@
 package com.im.server.core;
 
-import com.im.sdk.protocal.Message;
+import com.im.sdk.protocol.Message;
 
 import io.netty.channel.ChannelHandlerContext;
 
@@ -9,9 +9,9 @@ import io.netty.channel.ChannelHandlerContext;
  * @author xieyang
  *
  */
-public interface ServerHandler {
+public interface ProtocolHandler {
 
-	public void hand(ChannelHandlerContext ctx, Message.Data data);
+	public void handleRequest(ChannelHandlerContext ctx, Message.Data data);
 	
 	public int getCmd();
 }

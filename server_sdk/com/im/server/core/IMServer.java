@@ -15,9 +15,9 @@ package com.im.server.core;
  * under the License.
  */
 
-import com.im.sdk.protocal.Message;
-import com.im.sdk.protocal.ProtobufDecoder;
-import com.im.sdk.protocal.ProtobufEncoder;
+import com.im.sdk.protocol.Message;
+import com.im.sdk.protocol.ProtobufDecoder;
+import com.im.sdk.protocol.ProtobufEncoder;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelInitializer;

@@ -1,6 +1,7 @@
 package com.im.manage.push;
 
 import java.io.Serializable;
+
 /**
  * 服务端的消息对象
  *
@@ -9,13 +10,11 @@ public class PushMessage implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	
 	/**
 	 * 消息类型，用户自定义消息类别
 	 */
 	private String mid;
-	
-	
+
 	/**
 	 * 消息类型，用户自定义消息类别
 	 */
@@ -42,9 +41,9 @@ public class PushMessage implements Serializable {
 	 * 文件 url
 	 */
 	private String file;
-    /**
-     * 文件类型
-     */
+	/**
+	 * 文件类型
+	 */
 	private String fileType;
 
 	/**
@@ -52,14 +51,12 @@ public class PushMessage implements Serializable {
 	 */
 	private String format = "txt";
 
-	
 	private long timestamp;
-	
-	
-	public PushMessage()
-	{
+
+	public PushMessage() {
 		timestamp = System.currentTimeMillis();
 	}
+
 	public long getTimestamp() {
 		return timestamp;
 	}
@@ -131,31 +128,6 @@ public class PushMessage implements Serializable {
 	public void setFormat(String format) {
 		this.format = format;
 	}
-	
-	public String toString()
-	{
-		
-		StringBuffer buffer = new StringBuffer();
-		buffer.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
-		buffer.append("<message>");
-		buffer.append("<mid>").append(mid).append("</mid>");
-		buffer.append("<type>").append(type).append("</type>");
-		buffer.append("<title>").append(this.getTitle()==null?"":this.getTitle()).append("</title>");
-		buffer.append("<content><![CDATA[").append(this.getContent()==null?"":this.getContent()).append("]]></content>");
-		buffer.append("<file>").append(this.getFile()==null?"":this.getFile()).append("</file>");
-		buffer.append("<fileType>").append(this.getFileType()==null?"":this.getFileType()).append("</fileType>");
-		buffer.append("<sender>").append(this.getSender()==null?"":this.getSender()).append("</sender>");
-		buffer.append("<receiver>").append(this.getReceiver()==null?"":this.getReceiver()).append("</receiver>");
-		buffer.append("<format>").append(this.getFormat()==null?"":this.getFormat()).append("</format>");
-		buffer.append("<timestamp>").append(String.valueOf(timestamp)).append("</timestamp>");
-		buffer.append("</message>");
-		return buffer.toString();
-	}
-	public String toXmlString()
-	{
-		
-		return toString();
-	}
 
 	public String getMid() {
 		return mid;
@@ -164,6 +136,5 @@ public class PushMessage implements Serializable {
 	public void setMid(String mid) {
 		this.mid = mid;
 	}
-	
-	
+
 }

@@ -7,13 +7,18 @@ import java.util.Map;
 
 import org.junit.Test;
 
-import com.im.server.core.ServerHandler;
+import com.im.server.core.ProtocolHandler;
 
-public class HandllerUtil {
+/**
+ * 协议加载器
+ * @author xieyang
+ *
+ */
+public class ProtocolHandllerLoader {
 
-	private static Map<Integer, ServerHandler> handlers = new HashMap<Integer, ServerHandler>();;
+	private static Map<Integer, ProtocolHandler> handlers = new HashMap<Integer, ProtocolHandler>();;
 
-	public static ServerHandler getServerHandler(Integer cmd) {
+	public static ProtocolHandler getProtocolHandler(Integer cmd) {
 		return handlers.get(cmd);
 	}
 
@@ -23,10 +28,9 @@ public class HandllerUtil {
 		System.out.println("load handler ===========================>>>>>>>>>>>");
 		try {
 			System.out.println("load handler of ServerHandler");
-			Class cls = ServerHandler.class;
+			Class cls = ProtocolHandler.class;
 			List<String> packages = new ArrayList<String>();
 			packages.add("com.im.server.handler");
-		
 			List<Class<?>> tocalClasses = new ArrayList<Class<?>>();
 			for (String pk : packages) {
 				tocalClasses.addAll(ClassUtil.getClasses(pk));
@@ -35,7 +39,7 @@ public class HandllerUtil {
 			for (Class<?> c : tocalClasses) {
 				if (cls.isAssignableFrom(c) && !cls.equals(c)) {
 					System.out.println("handler[ " + c.getName() + " ]");
-					ServerHandler instance = (ServerHandler) c.newInstance();
+					ProtocolHandler instance = (ProtocolHandler) c.newInstance();
 					handlers.put(instance.getCmd(), instance);
 				}
 			}
@@ -56,7 +60,7 @@ public class HandllerUtil {
 	public void test2() {
 		try {
 			System.out.println("load handler of ServerHandler");
-			Class cls = ServerHandler.class;
+			Class cls = ProtocolHandler.class;
 			List<String> packages = new ArrayList<String>();
 			packages.add("com.im.server.handler");
 			List<Class<?>> tocalClasses = new ArrayList<Class<?>>();
@@ -67,7 +71,7 @@ public class HandllerUtil {
 			for (Class<?> c : tocalClasses) {
 				if (cls.isAssignableFrom(c) && !cls.equals(c)) {
 					System.out.println("handler[ " + c.getName() + " ]");
-					ServerHandler instance = (ServerHandler) c.newInstance();
+					ProtocolHandler instance = (ProtocolHandler) c.newInstance();
 					handlers.put(instance.getCmd(), instance);
 				}
 			}

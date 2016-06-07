@@ -1,19 +1,19 @@
-package com.im.server.handler;
+package com.im.protocol.handler;
 
 import com.im.manage.session.ContextHolder;
 import com.im.manage.session.SessionManager;
-import com.im.sdk.protocal.Message;
-import com.im.sdk.protocal.Message.Data;
-import com.im.sdk.protocal.Message.Data.Cmd;
+import com.im.sdk.protocol.Message;
+import com.im.sdk.protocol.Message.Data;
+import com.im.sdk.protocol.Message.Data.Cmd;
 import com.im.server.core.IMSession;
-import com.im.server.core.ServerHandler;
+import com.im.server.core.ProtocolHandler;
 
 import io.netty.channel.ChannelHandlerContext;
 
-public class ChatMsgHandler implements ServerHandler {
+public class ChatMsgHandler implements ProtocolHandler {
 
 	@Override
-	public void hand(ChannelHandlerContext ctx, Data data) {
+	public void handleRequest(ChannelHandlerContext ctx, Data data) {
 		System.out.println("channelRead  普通消息:"+data.getContent()+"==time:"+data.getCreateTime());
 		//先保存消息，用户收到才删除
 		saveMessage(data);

@@ -1,13 +1,13 @@
-package com.im.server.handler;
+package com.im.protocol.handler;
 
 import com.im.constant.CIMConstant;
 import com.im.manage.session.ContextHolder;
 import com.im.manage.session.SessionManager;
-import com.im.sdk.protocal.Message;
-import com.im.sdk.protocal.Message.Data;
-import com.im.sdk.protocal.Message.Data.Cmd;
+import com.im.sdk.protocol.Message;
+import com.im.sdk.protocol.Message.Data;
+import com.im.sdk.protocol.Message.Data.Cmd;
 import com.im.server.core.IMSession;
-import com.im.server.core.ServerHandler;
+import com.im.server.core.ProtocolHandler;
 
 import io.netty.channel.ChannelHandlerContext;
 
@@ -16,10 +16,10 @@ import io.netty.channel.ChannelHandlerContext;
  * @author mis
  *
  */
-public class LogoutHandler implements ServerHandler {
+public class LogoutHandler implements ProtocolHandler {
 
 	@Override
-	public void hand(ChannelHandlerContext ctx, Data data) {
+	public void handleRequest(ChannelHandlerContext ctx, Data data) {
 	
 		try {
 			SessionManager sessionManager  =  ((SessionManager) ContextHolder.getBean("defaultSessionManager"));

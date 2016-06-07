@@ -1,4 +1,4 @@
-package com.im.server.handler;
+package com.im.protocol.handler;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -8,18 +8,18 @@ import java.util.UUID;
 import com.im.constant.CIMConstant;
 import com.im.manage.session.ContextHolder;
 import com.im.manage.session.SessionManager;
-import com.im.sdk.protocal.Message;
-import com.im.sdk.protocal.Message.Data;
-import com.im.sdk.protocal.Message.Data.Cmd;
+import com.im.sdk.protocol.Message;
+import com.im.sdk.protocol.Message.Data;
+import com.im.sdk.protocol.Message.Data.Cmd;
 import com.im.server.core.IMSession;
-import com.im.server.core.ServerHandler;
+import com.im.server.core.ProtocolHandler;
 
 import io.netty.channel.ChannelHandlerContext;
 
-public class LoginHandler implements ServerHandler {
+public class LoginHandler implements ProtocolHandler {
 
 	@Override
-	public void hand(ChannelHandlerContext ctx, Data data) {
+	public void handleRequest(ChannelHandlerContext ctx, Data data) {
 		System.out.println("LoginHandler=================>>");
 		try {
 			SessionManager sessionManager = ((SessionManager) ContextHolder

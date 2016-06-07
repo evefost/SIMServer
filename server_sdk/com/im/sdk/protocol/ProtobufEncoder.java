@@ -13,7 +13,7 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package com.im.sdk.protocal;
+package com.im.sdk.protocol;
 
 import com.google.protobuf.Message;
 import com.google.protobuf.MessageLite;

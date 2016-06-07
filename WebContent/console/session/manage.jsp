@@ -43,7 +43,7 @@
 		       return;
 		    }
 		    showProcess('正在发送，请稍后......');
-		    $.post("<%=basePath%>/cgi/message_send.action", {content:message,type:2,sender:'system',receiver:account},
+		    $.post("<%=basePath%>/push/message_send.action", {content:message,type:2,sender:'system',receiver:account},
 			   function(data){
 			   
 			      hideProcess();
