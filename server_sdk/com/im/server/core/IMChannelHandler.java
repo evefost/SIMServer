@@ -72,7 +72,7 @@ public class IMChannelHandler extends ChannelHandlerAdapter {
 		case Cmd.HEARTBEAT_VALUE:
 			System.out.println("channelRead  心跳消息:");
 			break;
-		case Cmd.BIND_DEVICE_VALUE:
+		case Cmd.BIND_CLIENT_VALUE:
 			System.out.println("channelRead  绑定device:");
 			break;
 		default:

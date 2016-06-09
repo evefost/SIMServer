@@ -34,7 +34,6 @@ public class LogoutHandler implements ProtocolHandler {
 			reply.setCmd(Message.Data.Cmd.LOGOUT_VALUE);
 			reply.setCreateTime(data.getCreateTime());
 			reply.setSender(data.getSender());
-			reply.setLoginSuccess(true);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

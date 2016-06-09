@@ -208,5 +208,73 @@ public class IMSession implements Serializable {
 	public void setSession(Channel session) {
 		this.session = session;
 	}
+	
+	public class ClientInfo{
+		private String id;
+		private String name;
+		private String version;
+		private String ip;
+		private long bindTime;
+		public String getId() {
+			return id;
+		}
+		public void setId(String id) {
+			this.id = id;
+		}
+		public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
+		public String getVersion() {
+			return version;
+		}
+		public void setVersion(String version) {
+			this.version = version;
+		}
+		public String getIp() {
+			return ip;
+		}
+		public void setIp(String ip) {
+			this.ip = ip;
+		}
+		public long getBindTime() {
+			return bindTime;
+		}
+		public void setBindTime(long bindTime) {
+			this.bindTime = bindTime;
+		}
+		
+		
+	}
+	
+	public class User{
+		private String uid;
+		private String nickname;
+		private long loginTime;
+		
+		public String getUid() {
+			return uid;
+		}
+		public void setUid(String uid) {
+			this.uid = uid;
+		}
+		public String getNickname() {
+			return nickname;
+		}
+		public void setNickname(String nickname) {
+			this.nickname = nickname;
+		}
+		public long getLoginTime() {
+			return loginTime;
+		}
+		public void setLoginTime(long loginTime) {
+			this.loginTime = loginTime;
+		}
+		
+		
+		
+	}
 
 }

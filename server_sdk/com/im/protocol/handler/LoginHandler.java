@@ -66,7 +66,6 @@ public class LoginHandler implements ProtocolHandler {
 			reply.setCmd(Message.Data.Cmd.LOGIN_VALUE);
 			reply.setCreateTime(data.getCreateTime());
 			reply.setSender(data.getSender());
-			reply.setLoginSuccess(true);
 			newSession.write(reply);
 			checkAndSendOffLineMessages(newSession);
 		} catch (UnknownHostException e) {

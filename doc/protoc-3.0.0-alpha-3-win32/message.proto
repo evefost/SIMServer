@@ -1,6 +1,6 @@
-package com.im.sdk.protocal;
+package com.im.sdk.protocol;
 option java_outer_classname = "Message";
-option java_package = "com.im.sdk.protocal";
+option java_package = "com.im.sdk.protocol";
 
 message Data {
 
@@ -15,12 +15,12 @@ message Data {
 	LOGIN=0;
 	LOGOUT=1;
 	OTHER_LOGGIN=2;
-    HEARTBEAT=3;
-    CHAT_MSG=4;
+    	HEARTBEAT=3;
+    	CHAT_MSG=4;
 	CHAT_MSG_ECHO=5;
 	CHAT_OFFLINE_MSGS=6;
 	MINE_FRIENDS=7;
-	BIND_DEVICE=8;
+	BIND_CLIENT=8;
 
 	}
 }
