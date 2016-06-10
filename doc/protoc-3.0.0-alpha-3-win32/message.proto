@@ -6,22 +6,23 @@ message Data {
 
  required int32 cmd = 1;
  required int64 create_time = 2;
- optional string id = 3;
- optional string content = 4;
- optional string sender = 5;
- optional string receiver = 6;
+ optional string clientId = 3;
+ optional string id = 5;
+ optional string content = 6;
+ optional string sender = 7;
+ optional string receiver = 9;
   enum Cmd {
   
 	LOGIN=0;
-	LOGOUT=1;
-	OTHER_LOGGIN=2;
-    	HEARTBEAT=3;
-    	CHAT_MSG=4;
-	CHAT_MSG_ECHO=5;
-	CHAT_OFFLINE_MSGS=6;
-	MINE_FRIENDS=7;
-	BIND_CLIENT=8;
-
+	LOGIN_ECHO=1;
+	LOGOUT=2;
+	LOGOUT_ECHO=3;
+	OTHER_LOGGIN=4;
+    	HEARTBEAT=5;
+    	CHAT_TXT=6;
+	CHAT_TXT_ECHO=7;
+	CHAT_OFFLINE_MSGS=8;
+	MINE_FRIENDS=9;
+	BIND_CLIENT=10;
 	}
 }
-

@@ -13,6 +13,7 @@ import com.im.sdk.protocol.Message.Data;
 import com.im.sdk.protocol.Message.Data.Cmd;
 import com.im.server.core.IMSession;
 import com.im.server.core.ProtocolHandler;
+import com.im.server.util.SessionUtils;
 
 import io.netty.channel.ChannelHandlerContext;
 
@@ -62,11 +63,7 @@ public class LoginHandler implements ProtocolHandler {
 			}
 			System.out.println("LoginHandler 登录成功,回应客户端:" + data.getSender());
 			sessionManager.addSession(data.getSender(), newSession);
-			Message.Data.Builder reply = Message.Data.newBuilder();
-			reply.setCmd(Message.Data.Cmd.LOGIN_VALUE);
-			reply.setCreateTime(data.getCreateTime());
-			reply.setSender(data.getSender());
-			newSession.write(reply);
+			SessionUtils.reply(newSession, Message.Data.Cmd.LOGIN_ECHO_VALUE);
 			checkAndSendOffLineMessages(newSession);
 		} catch (UnknownHostException e) {
 			System.out.println("LoginHandler Ex:" + e.toString());

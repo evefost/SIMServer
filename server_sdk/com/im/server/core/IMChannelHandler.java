@@ -73,7 +73,7 @@ public class IMChannelHandler extends ChannelHandlerAdapter {
 			System.out.println("channelRead  心跳消息:");
 			break;
 		case Cmd.BIND_CLIENT_VALUE:
-			System.out.println("channelRead  绑定device:");
+			System.out.println("channelRead  绑定clientId:"+data.getClientId());
 			break;
 		default:
 			break;
