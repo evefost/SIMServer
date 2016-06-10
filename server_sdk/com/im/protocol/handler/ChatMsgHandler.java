@@ -19,7 +19,7 @@ public class ChatMsgHandler implements ProtocolHandler {
 		saveMessage(data);
 		//回应客户端
 		Message.Data.Builder reply = Message.Data.newBuilder();
-		reply.setCmd(Cmd.CHAT_MSG_ECHO_VALUE);
+		reply.setCmd(Cmd.CHAT_TXT_ECHO_VALUE);
 		reply.setCreateTime(data.getCreateTime());
 		ctx.writeAndFlush(reply);
 		
@@ -40,7 +40,7 @@ public class ChatMsgHandler implements ProtocolHandler {
 
 	@Override
 	public int getCmd() {
-		return Cmd.CHAT_MSG_VALUE;
+		return Cmd.CHAT_TXT_VALUE;
 	}
 
 }

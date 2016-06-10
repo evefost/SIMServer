@@ -27,7 +27,7 @@ public class MessageAction extends ActionSupport implements ModelDriven<PushMess
 		ServletActionContext.getResponse().setContentType("text/json;charset=UTF-8");
 		// 向客户端 发送消息
 		Message.Data.Builder msg = Message.Data.newBuilder();
-		msg.setCmd(Cmd.CHAT_MSG_VALUE);
+		msg.setCmd(Cmd.CHAT_TXT_VALUE);
 		msg.setCreateTime(System.currentTimeMillis());
 		msg.setReceiver(message.getReceiver());
 		msg.setContent(message.getContent());

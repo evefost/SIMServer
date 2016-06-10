@@ -16,8 +16,8 @@ package com.im.server.core;
  */
 
 import com.im.sdk.protocol.Message;
-import com.im.sdk.protocol.ProtobufDecoder;
-import com.im.sdk.protocol.ProtobufEncoder;
+//import com.im.sdk.protocol.ProtobufDecoder;
+//import com.im.sdk.protocol.ProtobufEncoder;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelInitializer;
@@ -26,6 +26,8 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.protobuf.ProtobufDecoder;
+import io.netty.handler.codec.protobuf.ProtobufEncoder;
 
 public final class IMServer {
 

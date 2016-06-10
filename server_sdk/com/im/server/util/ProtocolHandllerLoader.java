@@ -30,7 +30,7 @@ public class ProtocolHandllerLoader {
 			System.out.println("load handler of ServerHandler");
 			Class cls = ProtocolHandler.class;
 			List<String> packages = new ArrayList<String>();
-			packages.add("com.im.server.handler");
+			packages.add("com.im.protocol.handler");
 			List<Class<?>> tocalClasses = new ArrayList<Class<?>>();
 			for (String pk : packages) {
 				tocalClasses.addAll(ClassUtil.getClasses(pk));

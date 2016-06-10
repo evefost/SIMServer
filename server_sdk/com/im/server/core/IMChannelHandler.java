@@ -65,7 +65,7 @@ public class IMChannelHandler extends ChannelHandlerAdapter {
 		case Cmd.LOGOUT_VALUE:
 			System.out.println("channelRead 登出消息 :" + ctx.channel().remoteAddress());
 			break;
-		case Cmd.CHAT_MSG_VALUE:
+		case Cmd.CHAT_TXT_VALUE:
 			// System.out.println("channelRead
 			// 普通消息:"+data.getContent()+"==time:"+data.getCreateTime());
 			break;
