@@ -10,6 +10,7 @@ import com.im.server.core.IMSession;
 
 /**
  * session管理
+ * 
  * @author xie
  *
  */
@@ -19,17 +20,16 @@ public class DefaultSessionManager implements SessionManager {
 
 	private static final AtomicInteger connectionsCounter = new AtomicInteger(0);
 
-	public void addSession(String account, IMSession session) {
+	public void addSession(IMSession session) {
 		if (session != null) {
-			session.setTag(CIMConstant.SESSION_KEY, account);
-			sessions.put(account, session);
+			sessions.put(session.getClientInfo().getId(), session);
 			connectionsCounter.incrementAndGet();
 		}
 	}
 
-	public IMSession getSession(String account) {
+	public IMSession getSession(String clientId) {
 
-		return sessions.get(account);
+		return sessions.get(clientId);
 	}
 
 	public Collection<IMSession> getSessions() {
@@ -37,31 +37,21 @@ public class DefaultSessionManager implements SessionManager {
 	}
 
 	public void removeSession(IMSession session) {
-
-		sessions.remove(session.getTag(CIMConstant.SESSION_KEY));
+		sessions.remove(session.getClientInfo().getId());
 	}
 
 	public void removeSession(String account) {
-
 		sessions.remove(account);
 
 	}
 
 	public boolean containsCIMSession(IMSession ios) {
-		return sessions.containsKey(ios.getTag(CIMConstant.SESSION_KEY)) || sessions.containsValue(ios);
+		return sessions.containsKey(ios.getClientInfo().getId());
 	}
 
+	@Override
 	public String getAccount(IMSession ios) {
-		if (ios.getTag(CIMConstant.SESSION_KEY) == null) {
-			for (String key : sessions.keySet()) {
-				if (sessions.get(key).equals(ios) || sessions.get(key).getNid() == ios.getNid()) {
-					return key;
-				}
-			}
-		} else {
-			return ios.getTag(CIMConstant.SESSION_KEY).toString();
-		}
-
+		// TODO Auto-generated method stub
 		return null;
 	}
 

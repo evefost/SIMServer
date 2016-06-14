@@ -1,5 +1,7 @@
 package com.im.server.core;
 
+import com.im.manage.session.ContextHolder;
+import com.im.manage.session.SessionManager;
 import com.im.sdk.protocol.Message;
 
 import io.netty.channel.ChannelHandlerContext;
@@ -9,9 +11,13 @@ import io.netty.channel.ChannelHandlerContext;
  * @author xieyang
  *
  */
-public interface ProtocolHandler {
+public abstract class ProtocolHandler {
 
-	public void handleRequest(ChannelHandlerContext ctx, Message.Data data);
+	public abstract void handleRequest(ChannelHandlerContext ctx, Message.Data data);
 	
-	public int getCmd();
+	public abstract int getCmd();
+	
+	public SessionManager getSessionManager(){
+		return ((SessionManager) ContextHolder.getBean("defaultSessionManager"));
+	}
 }

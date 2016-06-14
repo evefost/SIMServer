@@ -34,6 +34,20 @@ public class IMSession2 implements Serializable {
 	public void setUser(User user) {
 		this.user = user;
 	}
+	
+	public boolean write(Object msg) {
+		if (channel != null && channel.isActive()) {
+			return channel.writeAndFlush(msg).awaitUninterruptibly(5000);
+		}
+		return false;
+	}
+	
+	public void close(boolean immediately) {
+		if (channel != null) {
+			channel.disconnect();
+			channel.close();
+		}
+	}
 
 	public class ClientInfo {
 

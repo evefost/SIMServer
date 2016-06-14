@@ -12,62 +12,55 @@ import com.im.sdk.protocol.Message;
 import com.im.sdk.protocol.Message.Data;
 import com.im.sdk.protocol.Message.Data.Cmd;
 import com.im.server.core.IMSession;
+import com.im.server.core.IMSession.User;
 import com.im.server.core.ProtocolHandler;
 import com.im.server.util.SessionUtils;
 
 import io.netty.channel.ChannelHandlerContext;
 
-public class LoginHandler implements ProtocolHandler {
+public class LoginHandler extends ProtocolHandler {
 
 	@Override
 	public void handleRequest(ChannelHandlerContext ctx, Data data) {
 		System.out.println("LoginHandler=================>>");
-		try {
-			SessionManager sessionManager = ((SessionManager) ContextHolder
-					.getBean("defaultSessionManager"));
-			// 创建新的session
-			IMSession newSession = new IMSession(ctx.channel());
-			newSession.setAccount(data.getSender());
-			newSession.setGid(UUID.randomUUID().toString());
-			newSession.setHost(InetAddress.getLocalHost().getHostAddress());
-			// 第一次设置心跳时间为登录时间
-			newSession.setBindTime(System.currentTimeMillis());
-			newSession.setHeartbeat(System.currentTimeMillis());
+		// 创建新的用户信息
+		User user = IMSession.buildUser();
+		user.setUid(data.getSender());
+		user.setLoginTime(System.currentTimeMillis());
+		IMSession newSession = getSessionManager().getSession(data.getClientId());
+		newSession.setUser(user);
+		
+		// 由于客户端断线服务端可能会无法获知的情况，客户端重连时，需要关闭旧的连接
+		IMSession oldSession = getSessionManager().getSession(data.getSender());
+		if (oldSession != null && !oldSession.equals(newSession)) {
+			System.out.println("LoginHandler 则让另一个终端下线:" + data.getSender());
+			//oldSession.removeTag(CIMConstant.SESSION_KEY);
+			Message.Data.Builder offLineReply = Message.Data.newBuilder();
+			// 强行下线消息类型
+			offLineReply.setCmd(Cmd.OTHER_LOGGIN_VALUE);
+			offLineReply.setCreateTime(data.getCreateTime());
+			offLineReply.setReceiver(data.getSender());
+//				if (!oldSession.isLocalhost()) {
+//					/*
+//					 * 判断当前session是否连接于本台服务器，如不是发往目标服务器处理
+//					 * MessageDispatcher.execute(msg, oldSession.getHost());
+//					 */
+//				} else {
+//					oldSession.write(offLineReply);
+//					oldSession.close(true);
+//					getSessionManager().removeSession(oldSession);
+//					oldSession = null;
+//				}
+			oldSession = null;
 
-			// 由于客户端断线服务端可能会无法获知的情况，客户端重连时，需要关闭旧的连接
-			IMSession oldSession = sessionManager.getSession(data.getSender());
-			if (oldSession != null && !oldSession.equals(newSession)) {
-				System.out.println("LoginHandler 则让另一个终端下线:" + data.getSender());
-				oldSession.removeTag(CIMConstant.SESSION_KEY);
-				Message.Data.Builder offLineReply = Message.Data.newBuilder();
-				// 强行下线消息类型
-				offLineReply.setCmd(Cmd.OTHER_LOGGIN_VALUE);
-				offLineReply.setCreateTime(data.getCreateTime());
-				offLineReply.setReceiver(data.getSender());
-				if (!oldSession.isLocalhost()) {
-					/*
-					 * 判断当前session是否连接于本台服务器，如不是发往目标服务器处理
-					 * MessageDispatcher.execute(msg, oldSession.getHost());
-					 */
-				} else {
-					oldSession.write(offLineReply);
-					oldSession.close(true);
-					sessionManager.removeSession(oldSession);
-					oldSession = null;
-				}
-				oldSession = null;
-
-			} else {
-				// 新登录
-			
-			}
-			System.out.println("LoginHandler 登录成功,回应客户端:" + data.getSender());
-			sessionManager.addSession(data.getSender(), newSession);
-			SessionUtils.reply(newSession, Message.Data.Cmd.LOGIN_ECHO_VALUE);
-			checkAndSendOffLineMessages(newSession);
-		} catch (UnknownHostException e) {
-			System.out.println("LoginHandler Ex:" + e.toString());
+		} else {
+			// 新登录
+		
 		}
+		System.out.println("LoginHandler 登录成功,回应客户端:" + data.getSender());
+		getSessionManager().addSession(newSession);
+		SessionUtils.reply(newSession, Message.Data.Cmd.LOGIN_ECHO_VALUE);
+		checkAndSendOffLineMessages(newSession);
 
 	}
 

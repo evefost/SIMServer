@@ -10,7 +10,7 @@ import com.im.server.core.ProtocolHandler;
 
 import io.netty.channel.ChannelHandlerContext;
 
-public class ChatMsgHandler implements ProtocolHandler {
+public class ChatMsgHandler extends ProtocolHandler {
 
 	@Override
 	public void handleRequest(ChannelHandlerContext ctx, Data data) {
@@ -22,10 +22,7 @@ public class ChatMsgHandler implements ProtocolHandler {
 		reply.setCmd(Cmd.CHAT_TXT_ECHO_VALUE);
 		reply.setCreateTime(data.getCreateTime());
 		ctx.writeAndFlush(reply);
-		
-		SessionManager sessionManager = ((SessionManager) ContextHolder
-				.getBean("defaultSessionManager"));
-		IMSession receiverSession = sessionManager.getSession(data.getReceiver());
+		IMSession receiverSession = getSessionManager().getSession(data.getReceiver());
 		if(receiverSession != null){
 			receiverSession.write(data);
 		}else{

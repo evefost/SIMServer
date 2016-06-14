@@ -62,7 +62,13 @@ public class ClusterSessionManager implements SessionManager {
 	}
 
 	public String getAccount(IMSession ios) {
-		return ios.getAccount();
+		return null;
+	}
+
+	@Override
+	public void addSession(IMSession session) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

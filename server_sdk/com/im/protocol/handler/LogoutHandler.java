@@ -17,17 +17,16 @@ import io.netty.channel.ChannelHandlerContext;
  * @author mis
  *
  */
-public class LogoutHandler implements ProtocolHandler {
+public class LogoutHandler extends ProtocolHandler {
 
 	@Override
 	public void handleRequest(ChannelHandlerContext ctx, Data data) {
 	
 		try {
-			SessionManager sessionManager  =  ((SessionManager) ContextHolder.getBean("defaultSessionManager"));
-			IMSession ios = sessionManager.getSession(data.getSender());
-			String account =ios.getTag(CIMConstant.SESSION_KEY).toString();
-			ios.removeTag(CIMConstant.SESSION_KEY);
-			sessionManager.removeSession(account);
+			IMSession ios = getSessionManager().getSession(data.getSender());
+//			String account =ios.getTag(CIMConstant.SESSION_KEY).toString();
+//			ios.removeTag(CIMConstant.SESSION_KEY);
+			//getSessionManager().removeSession(account);
 			SessionUtils.reply(ios, Message.Data.Cmd.LOGOUT_VALUE);
 			ios.close(true);
 		} catch (Exception e) {
