@@ -2,7 +2,11 @@ package com.im.server.core;
 
 import java.io.Serializable;
 
+import com.im.sdk.protocol.Message.Data;
+import com.im.server.core.IMSession.ClientInfo;
+
 import io.netty.channel.Channel;
+import io.netty.channel.ChannelHandlerContext;
 
 public class IMSession implements Serializable {
 
@@ -54,9 +58,15 @@ public class IMSession implements Serializable {
 		}
 	}
 	
-	public static ClientInfo buildClientInfo(){
-		return new ClientInfo();
+	public static IMSession buildSesion(ChannelHandlerContext ctx,Data data){
+		ClientInfo clientInfo = new ClientInfo();
+		clientInfo.setId(data.getClientId());
+		clientInfo.setIp(ctx.channel().remoteAddress().toString());
+		clientInfo.setBindTime(System.currentTimeMillis());
+		IMSession newSession = new IMSession(ctx.channel(),clientInfo);
+		return newSession;
 	}
+	
 	
 	public static User buildUser(){
 		return new User();

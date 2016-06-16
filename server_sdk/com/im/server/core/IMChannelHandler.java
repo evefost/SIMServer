@@ -41,6 +41,7 @@ public class IMChannelHandler extends ChannelHandlerAdapter {
 	public void channelActive(ChannelHandlerContext ctx) {
 
 		System.out.println("channelActive 已连上服务器 发送聊天服务地址给客户端 :" + ctx.channel().remoteAddress());
+		System.out.println("channelId :" + ctx.channel().id());
 
 	}
 

@@ -3,7 +3,10 @@ package com.im.manage.session;
 
 import java.util.Collection;
 
+import com.im.sdk.protocol.Message.Data;
 import com.im.server.core.IMSession;
+
+import io.netty.channel.ChannelHandlerContext;
 
 
 
@@ -53,4 +56,6 @@ public interface  SessionManager  {
 	 * @param session
 	 */
     public String getAccount(IMSession ios);
+    
+    public boolean isAreadyLogin(Data data);
 }

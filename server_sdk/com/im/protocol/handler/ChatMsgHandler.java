@@ -1,7 +1,5 @@
 package com.im.protocol.handler;
 
-import com.im.manage.session.ContextHolder;
-import com.im.manage.session.SessionManager;
 import com.im.sdk.protocol.Message;
 import com.im.sdk.protocol.Message.Data;
 import com.im.sdk.protocol.Message.Data.Cmd;

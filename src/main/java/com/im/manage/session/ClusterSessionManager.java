@@ -3,7 +3,10 @@ package com.im.manage.session;
 
 import java.util.Collection;
 
+import com.im.sdk.protocol.Message.Data;
 import com.im.server.core.IMSession;
+
+import io.netty.channel.ChannelHandlerContext;
 
 /*
 * 集群 session管理实现示例， 各位可以自行实现 AbstractSessionManager接口来实现自己的 session管理
@@ -69,6 +72,12 @@ public class ClusterSessionManager implements SessionManager {
 	public void addSession(IMSession session) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public boolean isAreadyLogin(Data data){
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }
