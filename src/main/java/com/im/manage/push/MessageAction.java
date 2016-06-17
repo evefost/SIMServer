@@ -29,7 +29,7 @@ public class MessageAction extends ActionSupport implements ModelDriven<PushMess
 		Message.Data.Builder msg = Message.Data.newBuilder();
 		msg.setCmd(Cmd.CHAT_TXT_VALUE);
 		msg.setCreateTime(System.currentTimeMillis());
-		msg.setReceiver(message.getReceiver());
+		msg.setReceiverId(message.getReceiver());
 		msg.setContent(message.getContent());
 		((IMessagePusher) ContextHolder.getBean("messagePusher")).pushMessage(msg);
 		return null;

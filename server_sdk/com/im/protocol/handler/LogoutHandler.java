@@ -1,5 +1,7 @@
 package com.im.protocol.handler;
 
+import java.util.UUID;
+
 import com.im.sdk.protocol.Message;
 import com.im.sdk.protocol.Message.Data;
 import com.im.sdk.protocol.Message.Data.Cmd;
@@ -20,7 +22,8 @@ public class LogoutHandler extends ProtocolHandler {
 	public void handleRequest(ChannelHandlerContext ctx, Data data) {
 	
 		try {
-			IMSession ios = getSessionManager().getSession(data.getSender());
+			IMSession ios = getSessionManager().getSession(data.getSenderId());
+			
 //			String account =ios.getTag(CIMConstant.SESSION_KEY).toString();
 //			ios.removeTag(CIMConstant.SESSION_KEY);
 			//getSessionManager().removeSession(account);

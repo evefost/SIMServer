@@ -1,5 +1,7 @@
 package com.im.protocol.handler;
 
+import java.util.UUID;
+
 import com.im.sdk.protocol.Message;
 import com.im.sdk.protocol.Message.Data;
 import com.im.sdk.protocol.Message.Data.Cmd;
@@ -7,6 +9,7 @@ import com.im.server.core.IMSession;
 import com.im.server.core.ProtocolHandler;
 
 import io.netty.channel.ChannelHandlerContext;
+import sun.misc.UUDecoder;
 
 public class ChatMsgHandler extends ProtocolHandler {
 
@@ -17,10 +20,11 @@ public class ChatMsgHandler extends ProtocolHandler {
 		saveMessage(data);
 		//回应客户端
 		Message.Data.Builder reply = Message.Data.newBuilder();
+		reply.setId(UUID.randomUUID().toString());
 		reply.setCmd(Cmd.CHAT_TXT_ECHO_VALUE);
 		reply.setCreateTime(data.getCreateTime());
 		ctx.writeAndFlush(reply);
-		IMSession receiverSession = getSessionManager().getSession(data.getReceiver());
+		IMSession receiverSession = getSessionManager().getSession(data.getReceiverId());
 		if(receiverSession != null){
 			receiverSession.write(data);
 		}else{

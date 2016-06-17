@@ -23,7 +23,7 @@ public class MessagePusher implements IMessagePusher{
 
 	@Override
 	public void pushMessage(Message.Data.Builder msg) {
-		IMSession session = sessionManager.getSession(msg.getReceiver());
+		IMSession session = sessionManager.getSession(msg.getReceiverId());
 		
 		/*服务器集群时，可以在此 判断当前session是否连接于本台服务器，如果是，继续往下走，如果不是，将此消息发往当前session连接的服务器并 return
 		if(!session.isLocalhost()){//判断当前session是否连接于本台服务器，如不是
@@ -33,7 +33,7 @@ public class MessagePusher implements IMessagePusher{
 		}
 		*/
 		
-		if (session != null && session.isConnected()) {
+		//if (session != null && session.isConnected()) {
 			
 			
 			/*//如果用户标示了DeviceToken 且 需要后台推送（Pushable=1） 说明这是ios设备需要使用anps发送
@@ -58,7 +58,7 @@ public class MessagePusher implements IMessagePusher{
 			//推送消息
 			  session.write(msg);
  			 
-		}else{
+		//}else{
 			
 			/*User target = ((UserService)ContextHolder.getBean("userServiceImpl")).getUserByAccount(msg.getReceiver());
 			//如果用户标示了DeviceToken 且 需要后台推送（Pushable=1） 说明这是ios设备需要使用anps发送
@@ -75,7 +75,7 @@ public class MessagePusher implements IMessagePusher{
 				
 			} */
 			//未发送
-		}
+		//}
 		try{
 			//可以在这保存消息到数据库
 			//((MessageService)ContextHolder.getBean("messageServiceImpl")).save(msg);

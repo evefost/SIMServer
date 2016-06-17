@@ -76,7 +76,7 @@ public class DefaultSessionManager implements SessionManager {
 	public boolean isAreadyLogin(Data data) {
 		String cid;
 		String clientId = data.getClientId();
-		String uid = data.getSender();
+		String uid = data.getSenderId();
 		String oldClientId = loginUsers.get(uid);
 		//同一个uid,不同的clientId,
 		if(!StringUtils.isEmpty(oldClientId) && !oldClientId.equals(clientId)){
