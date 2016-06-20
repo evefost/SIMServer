@@ -11,110 +11,165 @@ public final class Message {
   public interface DataOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // required string id = 5;
+    // required string id = 1;
     /**
-     * <code>required string id = 5;</code>
+     * <code>required string id = 1;</code>
      */
     boolean hasId();
     /**
-     * <code>required string id = 5;</code>
+     * <code>required string id = 1;</code>
      */
     java.lang.String getId();
     /**
-     * <code>required string id = 5;</code>
+     * <code>required string id = 1;</code>
      */
     com.google.protobuf.ByteString
         getIdBytes();
 
-    // required int32 cmd = 1;
+    // required int32 cmd = 2;
     /**
-     * <code>required int32 cmd = 1;</code>
+     * <code>required int32 cmd = 2;</code>
      */
     boolean hasCmd();
     /**
-     * <code>required int32 cmd = 1;</code>
+     * <code>required int32 cmd = 2;</code>
      */
     int getCmd();
 
-    // required int64 create_time = 2;
+    // required int64 create_time = 3;
     /**
-     * <code>required int64 create_time = 2;</code>
+     * <code>required int64 create_time = 3;</code>
      */
     boolean hasCreateTime();
     /**
-     * <code>required int64 create_time = 2;</code>
+     * <code>required int64 create_time = 3;</code>
      */
     long getCreateTime();
 
-    // optional bytes body = 10;
+    // optional bytes body = 4;
     /**
-     * <code>optional bytes body = 10;</code>
+     * <code>optional bytes body = 4;</code>
      */
     boolean hasBody();
     /**
-     * <code>optional bytes body = 10;</code>
+     * <code>optional bytes body = 4;</code>
      */
     com.google.protobuf.ByteString getBody();
 
-    // optional string clientId = 3;
+    // optional string clientId = 5;
     /**
-     * <code>optional string clientId = 3;</code>
+     * <code>optional string clientId = 5;</code>
      */
     boolean hasClientId();
     /**
-     * <code>optional string clientId = 3;</code>
+     * <code>optional string clientId = 5;</code>
      */
     java.lang.String getClientId();
     /**
-     * <code>optional string clientId = 3;</code>
+     * <code>optional string clientId = 5;</code>
      */
     com.google.protobuf.ByteString
         getClientIdBytes();
 
-    // optional string content = 6;
+    // optional string clientName = 6;
     /**
-     * <code>optional string content = 6;</code>
+     * <code>optional string clientName = 6;</code>
+     */
+    boolean hasClientName();
+    /**
+     * <code>optional string clientName = 6;</code>
+     */
+    java.lang.String getClientName();
+    /**
+     * <code>optional string clientName = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getClientNameBytes();
+
+    // optional string clientVersion = 7;
+    /**
+     * <code>optional string clientVersion = 7;</code>
+     */
+    boolean hasClientVersion();
+    /**
+     * <code>optional string clientVersion = 7;</code>
+     */
+    java.lang.String getClientVersion();
+    /**
+     * <code>optional string clientVersion = 7;</code>
+     */
+    com.google.protobuf.ByteString
+        getClientVersionBytes();
+
+    // optional string content = 8;
+    /**
+     * <code>optional string content = 8;</code>
      */
     boolean hasContent();
     /**
-     * <code>optional string content = 6;</code>
+     * <code>optional string content = 8;</code>
      */
     java.lang.String getContent();
     /**
-     * <code>optional string content = 6;</code>
+     * <code>optional string content = 8;</code>
      */
     com.google.protobuf.ByteString
         getContentBytes();
 
-    // optional string senderId = 7;
+    // optional string senderId = 9;
     /**
-     * <code>optional string senderId = 7;</code>
+     * <code>optional string senderId = 9;</code>
      */
     boolean hasSenderId();
     /**
-     * <code>optional string senderId = 7;</code>
+     * <code>optional string senderId = 9;</code>
      */
     java.lang.String getSenderId();
     /**
-     * <code>optional string senderId = 7;</code>
+     * <code>optional string senderId = 9;</code>
      */
     com.google.protobuf.ByteString
         getSenderIdBytes();
 
-    // optional string receiverId = 9;
+    // optional string receiverId = 10;
     /**
-     * <code>optional string receiverId = 9;</code>
+     * <code>optional string receiverId = 10;</code>
      */
     boolean hasReceiverId();
     /**
-     * <code>optional string receiverId = 9;</code>
+     * <code>optional string receiverId = 10;</code>
      */
     java.lang.String getReceiverId();
     /**
-     * <code>optional string receiverId = 9;</code>
+     * <code>optional string receiverId = 10;</code>
      */
     com.google.protobuf.ByteString
         getReceiverIdBytes();
+
+    // optional bool isEncript = 11;
+    /**
+     * <code>optional bool isEncript = 11;</code>
+     */
+    boolean hasIsEncript();
+    /**
+     * <code>optional bool isEncript = 11;</code>
+     */
+    boolean getIsEncript();
+
+    // optional string encriptKey = 12;
+    /**
+     * <code>optional string encriptKey = 12;</code>
+     */
+    boolean hasEncriptKey();
+    /**
+     * <code>optional string encriptKey = 12;</code>
+     */
+    java.lang.String getEncriptKey();
+    /**
+     * <code>optional string encriptKey = 12;</code>
+     */
+    com.google.protobuf.ByteString
+        getEncriptKeyBytes();
   }
   /**
    * Protobuf type {@code com.im.sdk.protocol.Data}
@@ -167,44 +222,64 @@ public final class Message {
               }
               break;
             }
-            case 8: {
-              bitField0_ |= 0x00000002;
-              cmd_ = input.readInt32();
-              break;
-            }
-            case 16: {
-              bitField0_ |= 0x00000004;
-              createTime_ = input.readInt64();
-              break;
-            }
-            case 26: {
-              bitField0_ |= 0x00000010;
-              clientId_ = input.readBytes();
-              break;
-            }
-            case 42: {
+            case 10: {
               bitField0_ |= 0x00000001;
               id_ = input.readBytes();
               break;
             }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              cmd_ = input.readInt32();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              createTime_ = input.readInt64();
+              break;
+            }
+            case 34: {
+              bitField0_ |= 0x00000008;
+              body_ = input.readBytes();
+              break;
+            }
+            case 42: {
+              bitField0_ |= 0x00000010;
+              clientId_ = input.readBytes();
+              break;
+            }
             case 50: {
               bitField0_ |= 0x00000020;
-              content_ = input.readBytes();
+              clientName_ = input.readBytes();
               break;
             }
             case 58: {
               bitField0_ |= 0x00000040;
-              senderId_ = input.readBytes();
+              clientVersion_ = input.readBytes();
+              break;
+            }
+            case 66: {
+              bitField0_ |= 0x00000080;
+              content_ = input.readBytes();
               break;
             }
             case 74: {
-              bitField0_ |= 0x00000080;
-              receiverId_ = input.readBytes();
+              bitField0_ |= 0x00000100;
+              senderId_ = input.readBytes();
               break;
             }
             case 82: {
-              bitField0_ |= 0x00000008;
-              body_ = input.readBytes();
+              bitField0_ |= 0x00000200;
+              receiverId_ = input.readBytes();
+              break;
+            }
+            case 88: {
+              bitField0_ |= 0x00000400;
+              isEncript_ = input.readBool();
+              break;
+            }
+            case 98: {
+              bitField0_ |= 0x00000800;
+              encriptKey_ = input.readBytes();
               break;
             }
           }
@@ -410,17 +485,17 @@ public final class Message {
     }
 
     private int bitField0_;
-    // required string id = 5;
-    public static final int ID_FIELD_NUMBER = 5;
+    // required string id = 1;
+    public static final int ID_FIELD_NUMBER = 1;
     private java.lang.Object id_;
     /**
-     * <code>required string id = 5;</code>
+     * <code>required string id = 1;</code>
      */
     public boolean hasId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required string id = 5;</code>
+     * <code>required string id = 1;</code>
      */
     public java.lang.String getId() {
       java.lang.Object ref = id_;
@@ -437,7 +512,7 @@ public final class Message {
       }
     }
     /**
-     * <code>required string id = 5;</code>
+     * <code>required string id = 1;</code>
      */
     public com.google.protobuf.ByteString
         getIdBytes() {
@@ -453,65 +528,65 @@ public final class Message {
       }
     }
 
-    // required int32 cmd = 1;
-    public static final int CMD_FIELD_NUMBER = 1;
+    // required int32 cmd = 2;
+    public static final int CMD_FIELD_NUMBER = 2;
     private int cmd_;
     /**
-     * <code>required int32 cmd = 1;</code>
+     * <code>required int32 cmd = 2;</code>
      */
     public boolean hasCmd() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>required int32 cmd = 1;</code>
+     * <code>required int32 cmd = 2;</code>
      */
     public int getCmd() {
       return cmd_;
     }
 
-    // required int64 create_time = 2;
-    public static final int CREATE_TIME_FIELD_NUMBER = 2;
+    // required int64 create_time = 3;
+    public static final int CREATE_TIME_FIELD_NUMBER = 3;
     private long createTime_;
     /**
-     * <code>required int64 create_time = 2;</code>
+     * <code>required int64 create_time = 3;</code>
      */
     public boolean hasCreateTime() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>required int64 create_time = 2;</code>
+     * <code>required int64 create_time = 3;</code>
      */
     public long getCreateTime() {
       return createTime_;
     }
 
-    // optional bytes body = 10;
-    public static final int BODY_FIELD_NUMBER = 10;
+    // optional bytes body = 4;
+    public static final int BODY_FIELD_NUMBER = 4;
     private com.google.protobuf.ByteString body_;
     /**
-     * <code>optional bytes body = 10;</code>
+     * <code>optional bytes body = 4;</code>
      */
     public boolean hasBody() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>optional bytes body = 10;</code>
+     * <code>optional bytes body = 4;</code>
      */
     public com.google.protobuf.ByteString getBody() {
       return body_;
     }
 
-    // optional string clientId = 3;
-    public static final int CLIENTID_FIELD_NUMBER = 3;
+    // optional string clientId = 5;
+    public static final int CLIENTID_FIELD_NUMBER = 5;
     private java.lang.Object clientId_;
     /**
-     * <code>optional string clientId = 3;</code>
+     * <code>optional string clientId = 5;</code>
      */
     public boolean hasClientId() {
       return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
-     * <code>optional string clientId = 3;</code>
+     * <code>optional string clientId = 5;</code>
      */
     public java.lang.String getClientId() {
       java.lang.Object ref = clientId_;
@@ -528,7 +603,7 @@ public final class Message {
       }
     }
     /**
-     * <code>optional string clientId = 3;</code>
+     * <code>optional string clientId = 5;</code>
      */
     public com.google.protobuf.ByteString
         getClientIdBytes() {
@@ -544,17 +619,103 @@ public final class Message {
       }
     }
 
-    // optional string content = 6;
-    public static final int CONTENT_FIELD_NUMBER = 6;
-    private java.lang.Object content_;
+    // optional string clientName = 6;
+    public static final int CLIENTNAME_FIELD_NUMBER = 6;
+    private java.lang.Object clientName_;
     /**
-     * <code>optional string content = 6;</code>
+     * <code>optional string clientName = 6;</code>
      */
-    public boolean hasContent() {
+    public boolean hasClientName() {
       return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
-     * <code>optional string content = 6;</code>
+     * <code>optional string clientName = 6;</code>
+     */
+    public java.lang.String getClientName() {
+      java.lang.Object ref = clientName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          clientName_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string clientName = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getClientNameBytes() {
+      java.lang.Object ref = clientName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        clientName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // optional string clientVersion = 7;
+    public static final int CLIENTVERSION_FIELD_NUMBER = 7;
+    private java.lang.Object clientVersion_;
+    /**
+     * <code>optional string clientVersion = 7;</code>
+     */
+    public boolean hasClientVersion() {
+      return ((bitField0_ & 0x00000040) == 0x00000040);
+    }
+    /**
+     * <code>optional string clientVersion = 7;</code>
+     */
+    public java.lang.String getClientVersion() {
+      java.lang.Object ref = clientVersion_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          clientVersion_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string clientVersion = 7;</code>
+     */
+    public com.google.protobuf.ByteString
+        getClientVersionBytes() {
+      java.lang.Object ref = clientVersion_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        clientVersion_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // optional string content = 8;
+    public static final int CONTENT_FIELD_NUMBER = 8;
+    private java.lang.Object content_;
+    /**
+     * <code>optional string content = 8;</code>
+     */
+    public boolean hasContent() {
+      return ((bitField0_ & 0x00000080) == 0x00000080);
+    }
+    /**
+     * <code>optional string content = 8;</code>
      */
     public java.lang.String getContent() {
       java.lang.Object ref = content_;
@@ -571,7 +732,7 @@ public final class Message {
       }
     }
     /**
-     * <code>optional string content = 6;</code>
+     * <code>optional string content = 8;</code>
      */
     public com.google.protobuf.ByteString
         getContentBytes() {
@@ -587,17 +748,17 @@ public final class Message {
       }
     }
 
-    // optional string senderId = 7;
-    public static final int SENDERID_FIELD_NUMBER = 7;
+    // optional string senderId = 9;
+    public static final int SENDERID_FIELD_NUMBER = 9;
     private java.lang.Object senderId_;
     /**
-     * <code>optional string senderId = 7;</code>
+     * <code>optional string senderId = 9;</code>
      */
     public boolean hasSenderId() {
-      return ((bitField0_ & 0x00000040) == 0x00000040);
+      return ((bitField0_ & 0x00000100) == 0x00000100);
     }
     /**
-     * <code>optional string senderId = 7;</code>
+     * <code>optional string senderId = 9;</code>
      */
     public java.lang.String getSenderId() {
       java.lang.Object ref = senderId_;
@@ -614,7 +775,7 @@ public final class Message {
       }
     }
     /**
-     * <code>optional string senderId = 7;</code>
+     * <code>optional string senderId = 9;</code>
      */
     public com.google.protobuf.ByteString
         getSenderIdBytes() {
@@ -630,17 +791,17 @@ public final class Message {
       }
     }
 
-    // optional string receiverId = 9;
-    public static final int RECEIVERID_FIELD_NUMBER = 9;
+    // optional string receiverId = 10;
+    public static final int RECEIVERID_FIELD_NUMBER = 10;
     private java.lang.Object receiverId_;
     /**
-     * <code>optional string receiverId = 9;</code>
+     * <code>optional string receiverId = 10;</code>
      */
     public boolean hasReceiverId() {
-      return ((bitField0_ & 0x00000080) == 0x00000080);
+      return ((bitField0_ & 0x00000200) == 0x00000200);
     }
     /**
-     * <code>optional string receiverId = 9;</code>
+     * <code>optional string receiverId = 10;</code>
      */
     public java.lang.String getReceiverId() {
       java.lang.Object ref = receiverId_;
@@ -657,7 +818,7 @@ public final class Message {
       }
     }
     /**
-     * <code>optional string receiverId = 9;</code>
+     * <code>optional string receiverId = 10;</code>
      */
     public com.google.protobuf.ByteString
         getReceiverIdBytes() {
@@ -673,15 +834,78 @@ public final class Message {
       }
     }
 
+    // optional bool isEncript = 11;
+    public static final int ISENCRIPT_FIELD_NUMBER = 11;
+    private boolean isEncript_;
+    /**
+     * <code>optional bool isEncript = 11;</code>
+     */
+    public boolean hasIsEncript() {
+      return ((bitField0_ & 0x00000400) == 0x00000400);
+    }
+    /**
+     * <code>optional bool isEncript = 11;</code>
+     */
+    public boolean getIsEncript() {
+      return isEncript_;
+    }
+
+    // optional string encriptKey = 12;
+    public static final int ENCRIPTKEY_FIELD_NUMBER = 12;
+    private java.lang.Object encriptKey_;
+    /**
+     * <code>optional string encriptKey = 12;</code>
+     */
+    public boolean hasEncriptKey() {
+      return ((bitField0_ & 0x00000800) == 0x00000800);
+    }
+    /**
+     * <code>optional string encriptKey = 12;</code>
+     */
+    public java.lang.String getEncriptKey() {
+      java.lang.Object ref = encriptKey_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          encriptKey_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string encriptKey = 12;</code>
+     */
+    public com.google.protobuf.ByteString
+        getEncriptKeyBytes() {
+      java.lang.Object ref = encriptKey_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        encriptKey_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private void initFields() {
       id_ = "";
       cmd_ = 0;
       createTime_ = 0L;
       body_ = com.google.protobuf.ByteString.EMPTY;
       clientId_ = "";
+      clientName_ = "";
+      clientVersion_ = "";
       content_ = "";
       senderId_ = "";
       receiverId_ = "";
+      isEncript_ = false;
+      encriptKey_ = "";
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -707,29 +931,41 @@ public final class Message {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getIdBytes());
+      }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt32(1, cmd_);
+        output.writeInt32(2, cmd_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeInt64(2, createTime_);
-      }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeBytes(3, getClientIdBytes());
-      }
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(5, getIdBytes());
-      }
-      if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        output.writeBytes(6, getContentBytes());
-      }
-      if (((bitField0_ & 0x00000040) == 0x00000040)) {
-        output.writeBytes(7, getSenderIdBytes());
-      }
-      if (((bitField0_ & 0x00000080) == 0x00000080)) {
-        output.writeBytes(9, getReceiverIdBytes());
+        output.writeInt64(3, createTime_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeBytes(10, body_);
+        output.writeBytes(4, body_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeBytes(5, getClientIdBytes());
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeBytes(6, getClientNameBytes());
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        output.writeBytes(7, getClientVersionBytes());
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        output.writeBytes(8, getContentBytes());
+      }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        output.writeBytes(9, getSenderIdBytes());
+      }
+      if (((bitField0_ & 0x00000200) == 0x00000200)) {
+        output.writeBytes(10, getReceiverIdBytes());
+      }
+      if (((bitField0_ & 0x00000400) == 0x00000400)) {
+        output.writeBool(11, isEncript_);
+      }
+      if (((bitField0_ & 0x00000800) == 0x00000800)) {
+        output.writeBytes(12, getEncriptKeyBytes());
       }
       getUnknownFields().writeTo(output);
     }
@@ -740,37 +976,53 @@ public final class Message {
       if (size != -1) return size;
 
       size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getIdBytes());
+      }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, cmd_);
+          .computeInt32Size(2, cmd_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(2, createTime_);
-      }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(3, getClientIdBytes());
-      }
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(5, getIdBytes());
-      }
-      if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(6, getContentBytes());
-      }
-      if (((bitField0_ & 0x00000040) == 0x00000040)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(7, getSenderIdBytes());
-      }
-      if (((bitField0_ & 0x00000080) == 0x00000080)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(9, getReceiverIdBytes());
+          .computeInt64Size(3, createTime_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(10, body_);
+          .computeBytesSize(4, body_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(5, getClientIdBytes());
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(6, getClientNameBytes());
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(7, getClientVersionBytes());
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(8, getContentBytes());
+      }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(9, getSenderIdBytes());
+      }
+      if (((bitField0_ & 0x00000200) == 0x00000200)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(10, getReceiverIdBytes());
+      }
+      if (((bitField0_ & 0x00000400) == 0x00000400)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(11, isEncript_);
+      }
+      if (((bitField0_ & 0x00000800) == 0x00000800)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(12, getEncriptKeyBytes());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -898,12 +1150,20 @@ public final class Message {
         bitField0_ = (bitField0_ & ~0x00000008);
         clientId_ = "";
         bitField0_ = (bitField0_ & ~0x00000010);
-        content_ = "";
+        clientName_ = "";
         bitField0_ = (bitField0_ & ~0x00000020);
-        senderId_ = "";
+        clientVersion_ = "";
         bitField0_ = (bitField0_ & ~0x00000040);
-        receiverId_ = "";
+        content_ = "";
         bitField0_ = (bitField0_ & ~0x00000080);
+        senderId_ = "";
+        bitField0_ = (bitField0_ & ~0x00000100);
+        receiverId_ = "";
+        bitField0_ = (bitField0_ & ~0x00000200);
+        isEncript_ = false;
+        bitField0_ = (bitField0_ & ~0x00000400);
+        encriptKey_ = "";
+        bitField0_ = (bitField0_ & ~0x00000800);
         return this;
       }
 
@@ -955,15 +1215,31 @@ public final class Message {
         if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
           to_bitField0_ |= 0x00000020;
         }
-        result.content_ = content_;
+        result.clientName_ = clientName_;
         if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
           to_bitField0_ |= 0x00000040;
         }
-        result.senderId_ = senderId_;
+        result.clientVersion_ = clientVersion_;
         if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
           to_bitField0_ |= 0x00000080;
         }
+        result.content_ = content_;
+        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
+          to_bitField0_ |= 0x00000100;
+        }
+        result.senderId_ = senderId_;
+        if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
+          to_bitField0_ |= 0x00000200;
+        }
         result.receiverId_ = receiverId_;
+        if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
+          to_bitField0_ |= 0x00000400;
+        }
+        result.isEncript_ = isEncript_;
+        if (((from_bitField0_ & 0x00000800) == 0x00000800)) {
+          to_bitField0_ |= 0x00000800;
+        }
+        result.encriptKey_ = encriptKey_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -999,19 +1275,37 @@ public final class Message {
           clientId_ = other.clientId_;
           onChanged();
         }
-        if (other.hasContent()) {
+        if (other.hasClientName()) {
           bitField0_ |= 0x00000020;
+          clientName_ = other.clientName_;
+          onChanged();
+        }
+        if (other.hasClientVersion()) {
+          bitField0_ |= 0x00000040;
+          clientVersion_ = other.clientVersion_;
+          onChanged();
+        }
+        if (other.hasContent()) {
+          bitField0_ |= 0x00000080;
           content_ = other.content_;
           onChanged();
         }
         if (other.hasSenderId()) {
-          bitField0_ |= 0x00000040;
+          bitField0_ |= 0x00000100;
           senderId_ = other.senderId_;
           onChanged();
         }
         if (other.hasReceiverId()) {
-          bitField0_ |= 0x00000080;
+          bitField0_ |= 0x00000200;
           receiverId_ = other.receiverId_;
+          onChanged();
+        }
+        if (other.hasIsEncript()) {
+          setIsEncript(other.getIsEncript());
+        }
+        if (other.hasEncriptKey()) {
+          bitField0_ |= 0x00000800;
+          encriptKey_ = other.encriptKey_;
           onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
@@ -1053,16 +1347,16 @@ public final class Message {
       }
       private int bitField0_;
 
-      // required string id = 5;
+      // required string id = 1;
       private java.lang.Object id_ = "";
       /**
-       * <code>required string id = 5;</code>
+       * <code>required string id = 1;</code>
        */
       public boolean hasId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required string id = 5;</code>
+       * <code>required string id = 1;</code>
        */
       public java.lang.String getId() {
         java.lang.Object ref = id_;
@@ -1076,7 +1370,7 @@ public final class Message {
         }
       }
       /**
-       * <code>required string id = 5;</code>
+       * <code>required string id = 1;</code>
        */
       public com.google.protobuf.ByteString
           getIdBytes() {
@@ -1092,7 +1386,7 @@ public final class Message {
         }
       }
       /**
-       * <code>required string id = 5;</code>
+       * <code>required string id = 1;</code>
        */
       public Builder setId(
           java.lang.String value) {
@@ -1105,7 +1399,7 @@ public final class Message {
         return this;
       }
       /**
-       * <code>required string id = 5;</code>
+       * <code>required string id = 1;</code>
        */
       public Builder clearId() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -1114,7 +1408,7 @@ public final class Message {
         return this;
       }
       /**
-       * <code>required string id = 5;</code>
+       * <code>required string id = 1;</code>
        */
       public Builder setIdBytes(
           com.google.protobuf.ByteString value) {
@@ -1127,22 +1421,22 @@ public final class Message {
         return this;
       }
 
-      // required int32 cmd = 1;
+      // required int32 cmd = 2;
       private int cmd_ ;
       /**
-       * <code>required int32 cmd = 1;</code>
+       * <code>required int32 cmd = 2;</code>
        */
       public boolean hasCmd() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>required int32 cmd = 1;</code>
+       * <code>required int32 cmd = 2;</code>
        */
       public int getCmd() {
         return cmd_;
       }
       /**
-       * <code>required int32 cmd = 1;</code>
+       * <code>required int32 cmd = 2;</code>
        */
       public Builder setCmd(int value) {
         bitField0_ |= 0x00000002;
@@ -1151,7 +1445,7 @@ public final class Message {
         return this;
       }
       /**
-       * <code>required int32 cmd = 1;</code>
+       * <code>required int32 cmd = 2;</code>
        */
       public Builder clearCmd() {
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -1160,22 +1454,22 @@ public final class Message {
         return this;
       }
 
-      // required int64 create_time = 2;
+      // required int64 create_time = 3;
       private long createTime_ ;
       /**
-       * <code>required int64 create_time = 2;</code>
+       * <code>required int64 create_time = 3;</code>
        */
       public boolean hasCreateTime() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>required int64 create_time = 2;</code>
+       * <code>required int64 create_time = 3;</code>
        */
       public long getCreateTime() {
         return createTime_;
       }
       /**
-       * <code>required int64 create_time = 2;</code>
+       * <code>required int64 create_time = 3;</code>
        */
       public Builder setCreateTime(long value) {
         bitField0_ |= 0x00000004;
@@ -1184,7 +1478,7 @@ public final class Message {
         return this;
       }
       /**
-       * <code>required int64 create_time = 2;</code>
+       * <code>required int64 create_time = 3;</code>
        */
       public Builder clearCreateTime() {
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -1193,22 +1487,22 @@ public final class Message {
         return this;
       }
 
-      // optional bytes body = 10;
+      // optional bytes body = 4;
       private com.google.protobuf.ByteString body_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>optional bytes body = 10;</code>
+       * <code>optional bytes body = 4;</code>
        */
       public boolean hasBody() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>optional bytes body = 10;</code>
+       * <code>optional bytes body = 4;</code>
        */
       public com.google.protobuf.ByteString getBody() {
         return body_;
       }
       /**
-       * <code>optional bytes body = 10;</code>
+       * <code>optional bytes body = 4;</code>
        */
       public Builder setBody(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -1220,7 +1514,7 @@ public final class Message {
         return this;
       }
       /**
-       * <code>optional bytes body = 10;</code>
+       * <code>optional bytes body = 4;</code>
        */
       public Builder clearBody() {
         bitField0_ = (bitField0_ & ~0x00000008);
@@ -1229,16 +1523,16 @@ public final class Message {
         return this;
       }
 
-      // optional string clientId = 3;
+      // optional string clientId = 5;
       private java.lang.Object clientId_ = "";
       /**
-       * <code>optional string clientId = 3;</code>
+       * <code>optional string clientId = 5;</code>
        */
       public boolean hasClientId() {
         return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
-       * <code>optional string clientId = 3;</code>
+       * <code>optional string clientId = 5;</code>
        */
       public java.lang.String getClientId() {
         java.lang.Object ref = clientId_;
@@ -1252,7 +1546,7 @@ public final class Message {
         }
       }
       /**
-       * <code>optional string clientId = 3;</code>
+       * <code>optional string clientId = 5;</code>
        */
       public com.google.protobuf.ByteString
           getClientIdBytes() {
@@ -1268,7 +1562,7 @@ public final class Message {
         }
       }
       /**
-       * <code>optional string clientId = 3;</code>
+       * <code>optional string clientId = 5;</code>
        */
       public Builder setClientId(
           java.lang.String value) {
@@ -1281,7 +1575,7 @@ public final class Message {
         return this;
       }
       /**
-       * <code>optional string clientId = 3;</code>
+       * <code>optional string clientId = 5;</code>
        */
       public Builder clearClientId() {
         bitField0_ = (bitField0_ & ~0x00000010);
@@ -1290,7 +1584,7 @@ public final class Message {
         return this;
       }
       /**
-       * <code>optional string clientId = 3;</code>
+       * <code>optional string clientId = 5;</code>
        */
       public Builder setClientIdBytes(
           com.google.protobuf.ByteString value) {
@@ -1303,16 +1597,164 @@ public final class Message {
         return this;
       }
 
-      // optional string content = 6;
-      private java.lang.Object content_ = "";
+      // optional string clientName = 6;
+      private java.lang.Object clientName_ = "";
       /**
-       * <code>optional string content = 6;</code>
+       * <code>optional string clientName = 6;</code>
        */
-      public boolean hasContent() {
+      public boolean hasClientName() {
         return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
-       * <code>optional string content = 6;</code>
+       * <code>optional string clientName = 6;</code>
+       */
+      public java.lang.String getClientName() {
+        java.lang.Object ref = clientName_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          clientName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string clientName = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getClientNameBytes() {
+        java.lang.Object ref = clientName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          clientName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string clientName = 6;</code>
+       */
+      public Builder setClientName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000020;
+        clientName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string clientName = 6;</code>
+       */
+      public Builder clearClientName() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        clientName_ = getDefaultInstance().getClientName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string clientName = 6;</code>
+       */
+      public Builder setClientNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000020;
+        clientName_ = value;
+        onChanged();
+        return this;
+      }
+
+      // optional string clientVersion = 7;
+      private java.lang.Object clientVersion_ = "";
+      /**
+       * <code>optional string clientVersion = 7;</code>
+       */
+      public boolean hasClientVersion() {
+        return ((bitField0_ & 0x00000040) == 0x00000040);
+      }
+      /**
+       * <code>optional string clientVersion = 7;</code>
+       */
+      public java.lang.String getClientVersion() {
+        java.lang.Object ref = clientVersion_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          clientVersion_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string clientVersion = 7;</code>
+       */
+      public com.google.protobuf.ByteString
+          getClientVersionBytes() {
+        java.lang.Object ref = clientVersion_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          clientVersion_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string clientVersion = 7;</code>
+       */
+      public Builder setClientVersion(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000040;
+        clientVersion_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string clientVersion = 7;</code>
+       */
+      public Builder clearClientVersion() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        clientVersion_ = getDefaultInstance().getClientVersion();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string clientVersion = 7;</code>
+       */
+      public Builder setClientVersionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000040;
+        clientVersion_ = value;
+        onChanged();
+        return this;
+      }
+
+      // optional string content = 8;
+      private java.lang.Object content_ = "";
+      /**
+       * <code>optional string content = 8;</code>
+       */
+      public boolean hasContent() {
+        return ((bitField0_ & 0x00000080) == 0x00000080);
+      }
+      /**
+       * <code>optional string content = 8;</code>
        */
       public java.lang.String getContent() {
         java.lang.Object ref = content_;
@@ -1326,7 +1768,7 @@ public final class Message {
         }
       }
       /**
-       * <code>optional string content = 6;</code>
+       * <code>optional string content = 8;</code>
        */
       public com.google.protobuf.ByteString
           getContentBytes() {
@@ -1342,51 +1784,51 @@ public final class Message {
         }
       }
       /**
-       * <code>optional string content = 6;</code>
+       * <code>optional string content = 8;</code>
        */
       public Builder setContent(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000020;
+  bitField0_ |= 0x00000080;
         content_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string content = 6;</code>
+       * <code>optional string content = 8;</code>
        */
       public Builder clearContent() {
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000080);
         content_ = getDefaultInstance().getContent();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string content = 6;</code>
+       * <code>optional string content = 8;</code>
        */
       public Builder setContentBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000020;
+  bitField0_ |= 0x00000080;
         content_ = value;
         onChanged();
         return this;
       }
 
-      // optional string senderId = 7;
+      // optional string senderId = 9;
       private java.lang.Object senderId_ = "";
       /**
-       * <code>optional string senderId = 7;</code>
+       * <code>optional string senderId = 9;</code>
        */
       public boolean hasSenderId() {
-        return ((bitField0_ & 0x00000040) == 0x00000040);
+        return ((bitField0_ & 0x00000100) == 0x00000100);
       }
       /**
-       * <code>optional string senderId = 7;</code>
+       * <code>optional string senderId = 9;</code>
        */
       public java.lang.String getSenderId() {
         java.lang.Object ref = senderId_;
@@ -1400,7 +1842,7 @@ public final class Message {
         }
       }
       /**
-       * <code>optional string senderId = 7;</code>
+       * <code>optional string senderId = 9;</code>
        */
       public com.google.protobuf.ByteString
           getSenderIdBytes() {
@@ -1416,51 +1858,51 @@ public final class Message {
         }
       }
       /**
-       * <code>optional string senderId = 7;</code>
+       * <code>optional string senderId = 9;</code>
        */
       public Builder setSenderId(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000040;
+  bitField0_ |= 0x00000100;
         senderId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string senderId = 7;</code>
+       * <code>optional string senderId = 9;</code>
        */
       public Builder clearSenderId() {
-        bitField0_ = (bitField0_ & ~0x00000040);
+        bitField0_ = (bitField0_ & ~0x00000100);
         senderId_ = getDefaultInstance().getSenderId();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string senderId = 7;</code>
+       * <code>optional string senderId = 9;</code>
        */
       public Builder setSenderIdBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000040;
+  bitField0_ |= 0x00000100;
         senderId_ = value;
         onChanged();
         return this;
       }
 
-      // optional string receiverId = 9;
+      // optional string receiverId = 10;
       private java.lang.Object receiverId_ = "";
       /**
-       * <code>optional string receiverId = 9;</code>
+       * <code>optional string receiverId = 10;</code>
        */
       public boolean hasReceiverId() {
-        return ((bitField0_ & 0x00000080) == 0x00000080);
+        return ((bitField0_ & 0x00000200) == 0x00000200);
       }
       /**
-       * <code>optional string receiverId = 9;</code>
+       * <code>optional string receiverId = 10;</code>
        */
       public java.lang.String getReceiverId() {
         java.lang.Object ref = receiverId_;
@@ -1474,7 +1916,7 @@ public final class Message {
         }
       }
       /**
-       * <code>optional string receiverId = 9;</code>
+       * <code>optional string receiverId = 10;</code>
        */
       public com.google.protobuf.ByteString
           getReceiverIdBytes() {
@@ -1490,37 +1932,144 @@ public final class Message {
         }
       }
       /**
-       * <code>optional string receiverId = 9;</code>
+       * <code>optional string receiverId = 10;</code>
        */
       public Builder setReceiverId(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000080;
+  bitField0_ |= 0x00000200;
         receiverId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string receiverId = 9;</code>
+       * <code>optional string receiverId = 10;</code>
        */
       public Builder clearReceiverId() {
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x00000200);
         receiverId_ = getDefaultInstance().getReceiverId();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string receiverId = 9;</code>
+       * <code>optional string receiverId = 10;</code>
        */
       public Builder setReceiverIdBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000080;
+  bitField0_ |= 0x00000200;
         receiverId_ = value;
+        onChanged();
+        return this;
+      }
+
+      // optional bool isEncript = 11;
+      private boolean isEncript_ ;
+      /**
+       * <code>optional bool isEncript = 11;</code>
+       */
+      public boolean hasIsEncript() {
+        return ((bitField0_ & 0x00000400) == 0x00000400);
+      }
+      /**
+       * <code>optional bool isEncript = 11;</code>
+       */
+      public boolean getIsEncript() {
+        return isEncript_;
+      }
+      /**
+       * <code>optional bool isEncript = 11;</code>
+       */
+      public Builder setIsEncript(boolean value) {
+        bitField0_ |= 0x00000400;
+        isEncript_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool isEncript = 11;</code>
+       */
+      public Builder clearIsEncript() {
+        bitField0_ = (bitField0_ & ~0x00000400);
+        isEncript_ = false;
+        onChanged();
+        return this;
+      }
+
+      // optional string encriptKey = 12;
+      private java.lang.Object encriptKey_ = "";
+      /**
+       * <code>optional string encriptKey = 12;</code>
+       */
+      public boolean hasEncriptKey() {
+        return ((bitField0_ & 0x00000800) == 0x00000800);
+      }
+      /**
+       * <code>optional string encriptKey = 12;</code>
+       */
+      public java.lang.String getEncriptKey() {
+        java.lang.Object ref = encriptKey_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          encriptKey_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string encriptKey = 12;</code>
+       */
+      public com.google.protobuf.ByteString
+          getEncriptKeyBytes() {
+        java.lang.Object ref = encriptKey_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          encriptKey_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string encriptKey = 12;</code>
+       */
+      public Builder setEncriptKey(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000800;
+        encriptKey_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string encriptKey = 12;</code>
+       */
+      public Builder clearEncriptKey() {
+        bitField0_ = (bitField0_ & ~0x00000800);
+        encriptKey_ = getDefaultInstance().getEncriptKey();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string encriptKey = 12;</code>
+       */
+      public Builder setEncriptKeyBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000800;
+        encriptKey_ = value;
         onChanged();
         return this;
       }
@@ -1550,16 +2099,18 @@ public final class Message {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\rmessage.proto\022\023com.im.sdk.protocol\"\307\002\n" +
-      "\004Data\022\n\n\002id\030\005 \002(\t\022\013\n\003cmd\030\001 \002(\005\022\023\n\013create" +
-      "_time\030\002 \002(\003\022\014\n\004body\030\n \001(\014\022\020\n\010clientId\030\003 " +
-      "\001(\t\022\017\n\007content\030\006 \001(\t\022\020\n\010senderId\030\007 \001(\t\022\022" +
-      "\n\nreceiverId\030\t \001(\t\"\271\001\n\003Cmd\022\t\n\005LOGIN\020\000\022\016\n" +
-      "\nLOGIN_ECHO\020\001\022\n\n\006LOGOUT\020\002\022\017\n\013LOGOUT_ECHO" +
-      "\020\003\022\020\n\014OTHER_LOGGIN\020\004\022\r\n\tHEARTBEAT\020\005\022\014\n\010C" +
-      "HAT_TXT\020\006\022\021\n\rCHAT_TXT_ECHO\020\007\022\025\n\021CHAT_OFF" +
-      "LINE_MSGS\020\010\022\020\n\014MINE_FRIENDS\020\t\022\017\n\013BIND_CL" +
-      "IENT\020\nB\036\n\023com.im.sdk.protocolB\007Message"
+      "\n\rmessage.proto\022\023com.im.sdk.protocol\"\231\003\n" +
+      "\004Data\022\n\n\002id\030\001 \002(\t\022\013\n\003cmd\030\002 \002(\005\022\023\n\013create" +
+      "_time\030\003 \002(\003\022\014\n\004body\030\004 \001(\014\022\020\n\010clientId\030\005 " +
+      "\001(\t\022\022\n\nclientName\030\006 \001(\t\022\025\n\rclientVersion" +
+      "\030\007 \001(\t\022\017\n\007content\030\010 \001(\t\022\020\n\010senderId\030\t \001(" +
+      "\t\022\022\n\nreceiverId\030\n \001(\t\022\021\n\tisEncript\030\013 \001(\010" +
+      "\022\022\n\nencriptKey\030\014 \001(\t\"\271\001\n\003Cmd\022\t\n\005LOGIN\020\000\022" +
+      "\016\n\nLOGIN_ECHO\020\001\022\n\n\006LOGOUT\020\002\022\017\n\013LOGOUT_EC" +
+      "HO\020\003\022\020\n\014OTHER_LOGGIN\020\004\022\r\n\tHEARTBEAT\020\005\022\014\n" +
+      "\010CHAT_TXT\020\006\022\021\n\rCHAT_TXT_ECHO\020\007\022\025\n\021CHAT_O",
+      "FFLINE_MSGS\020\010\022\020\n\014MINE_FRIENDS\020\t\022\017\n\013BIND_" +
+      "CLIENT\020\nB\036\n\023com.im.sdk.protocolB\007Message"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -1571,7 +2122,7 @@ public final class Message {
           internal_static_com_im_sdk_protocol_Data_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_im_sdk_protocol_Data_descriptor,
-              new java.lang.String[] { "Id", "Cmd", "CreateTime", "Body", "ClientId", "Content", "SenderId", "ReceiverId", });
+              new java.lang.String[] { "Id", "Cmd", "CreateTime", "Body", "ClientId", "ClientName", "ClientVersion", "Content", "SenderId", "ReceiverId", "IsEncript", "EncriptKey", });
           return null;
         }
       };

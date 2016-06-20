@@ -58,7 +58,7 @@ public class ClusterSessionManager implements SessionManager {
 
 	}
 
-	public boolean containsCIMSession(IMSession ios) {
+	public boolean containsSession(IMSession ios) {
 		// return database.containsCIMSession(session.getAccount());
 
 		return false;

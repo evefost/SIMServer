@@ -6,7 +6,6 @@ import com.im.sdk.protocol.Message;
 import com.im.sdk.protocol.Message.Data;
 import com.im.sdk.protocol.Message.Data.Cmd;
 import com.im.server.core.IMSession;
-import com.im.server.core.IMSession.User;
 import com.im.server.core.ProtocolHandler;
 import com.im.server.util.SessionUtils;
 
@@ -30,14 +29,12 @@ public class LoginHandler extends ProtocolHandler {
 			getSessionManager().removeSession(oldSession);
 		}
 		// 创建新的用户信息
-		User user = IMSession.buildUser();
-		user.setUid(data.getSenderId());
-		user.setLoginTime(System.currentTimeMillis());
 		IMSession newSession = getSessionManager().getSession(data.getClientId());
 		if (newSession == null) {
 			newSession = IMSession.buildSesion(ctx, data);
 		}
-		newSession.setUser(user);
+		newSession.setUid(data.getSenderId());
+		newSession.setLoginTime(System.currentTimeMillis());
 		System.out.println("LoginHandler 登录成功,回应客户端:" + data.getSenderId());
 		getSessionManager().addSession(newSession);
 		SessionUtils.reply(newSession, Message.Data.Cmd.LOGIN_ECHO_VALUE);

@@ -49,7 +49,7 @@ public interface  SessionManager  {
 	 * session是否存在
 	 * @param session
 	 */
-    public boolean containsCIMSession(IMSession ios);
+    public boolean containsSession(IMSession ios);
     
     /**
 	 * session获取对应的 用户 key  

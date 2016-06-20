@@ -9,8 +9,6 @@ import com.im.sdk.protocol.Message.Data;
 import com.im.server.core.IMSession;
 import com.im.server.util.StringUtils;
 
-import io.netty.channel.ChannelHandlerContext;
-
 /**
  * session管理
  * 
@@ -35,9 +33,9 @@ public class DefaultSessionManager implements SessionManager {
 
 	public void addSession(IMSession session) {
 		if (session != null) {
-			sessions.put(session.getClientInfo().getId(), session);
-			if(session.getUser() != null){
-				loginUsers.put(session.getUser().getUid(), session.getClientInfo().getId());
+			sessions.put(session.getClientId(), session);
+			if(!StringUtils.isEmpty(session.getUid())){
+				loginUsers.put(session.getUid(), session.getClientId());
 			}
 			connectionsCounter.incrementAndGet();
 		}
@@ -53,7 +51,8 @@ public class DefaultSessionManager implements SessionManager {
 	}
 
 	public void removeSession(IMSession session) {
-		sessions.remove(session.getClientInfo().getId());
+		sessions.remove(session.getClientId());
+		loginUsers.remove(session.getUid());
 		session.close(true);
 	}
 
@@ -62,9 +61,7 @@ public class DefaultSessionManager implements SessionManager {
 
 	}
 
-	public boolean containsCIMSession(IMSession ios) {
-		return sessions.containsKey(ios.getClientInfo().getId());
-	}
+
 
 	@Override
 	public String getAccount(IMSession ios) {
@@ -74,7 +71,6 @@ public class DefaultSessionManager implements SessionManager {
 
 	@Override
 	public boolean isAreadyLogin(Data data) {
-		String cid;
 		String clientId = data.getClientId();
 		String uid = data.getSenderId();
 		String oldClientId = loginUsers.get(uid);
@@ -82,6 +78,12 @@ public class DefaultSessionManager implements SessionManager {
 		if(!StringUtils.isEmpty(oldClientId) && !oldClientId.equals(clientId)){
 			return true;
 		}
+		return false;
+	}
+
+	@Override
+	public boolean containsSession(IMSession ios) {
+		// TODO Auto-generated method stub
 		return false;
 	}
 
