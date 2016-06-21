@@ -36,13 +36,13 @@ public final class Message {
      */
     int getCmd();
 
-    // required int64 create_time = 3;
+    // optional int64 create_time = 3;
     /**
-     * <code>required int64 create_time = 3;</code>
+     * <code>optional int64 create_time = 3;</code>
      */
     boolean hasCreateTime();
     /**
-     * <code>required int64 create_time = 3;</code>
+     * <code>optional int64 create_time = 3;</code>
      */
     long getCreateTime();
 
@@ -544,17 +544,17 @@ public final class Message {
       return cmd_;
     }
 
-    // required int64 create_time = 3;
+    // optional int64 create_time = 3;
     public static final int CREATE_TIME_FIELD_NUMBER = 3;
     private long createTime_;
     /**
-     * <code>required int64 create_time = 3;</code>
+     * <code>optional int64 create_time = 3;</code>
      */
     public boolean hasCreateTime() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>required int64 create_time = 3;</code>
+     * <code>optional int64 create_time = 3;</code>
      */
     public long getCreateTime() {
       return createTime_;
@@ -917,10 +917,6 @@ public final class Message {
         return false;
       }
       if (!hasCmd()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasCreateTime()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -1321,10 +1317,6 @@ public final class Message {
           
           return false;
         }
-        if (!hasCreateTime()) {
-          
-          return false;
-        }
         return true;
       }
 
@@ -1454,22 +1446,22 @@ public final class Message {
         return this;
       }
 
-      // required int64 create_time = 3;
+      // optional int64 create_time = 3;
       private long createTime_ ;
       /**
-       * <code>required int64 create_time = 3;</code>
+       * <code>optional int64 create_time = 3;</code>
        */
       public boolean hasCreateTime() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>required int64 create_time = 3;</code>
+       * <code>optional int64 create_time = 3;</code>
        */
       public long getCreateTime() {
         return createTime_;
       }
       /**
-       * <code>required int64 create_time = 3;</code>
+       * <code>optional int64 create_time = 3;</code>
        */
       public Builder setCreateTime(long value) {
         bitField0_ |= 0x00000004;
@@ -1478,7 +1470,7 @@ public final class Message {
         return this;
       }
       /**
-       * <code>required int64 create_time = 3;</code>
+       * <code>optional int64 create_time = 3;</code>
        */
       public Builder clearCreateTime() {
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -2101,7 +2093,7 @@ public final class Message {
     java.lang.String[] descriptorData = {
       "\n\rmessage.proto\022\023com.im.sdk.protocol\"\231\003\n" +
       "\004Data\022\n\n\002id\030\001 \002(\t\022\013\n\003cmd\030\002 \002(\005\022\023\n\013create" +
-      "_time\030\003 \002(\003\022\014\n\004body\030\004 \001(\014\022\020\n\010clientId\030\005 " +
+      "_time\030\003 \001(\003\022\014\n\004body\030\004 \001(\014\022\020\n\010clientId\030\005 " +
       "\001(\t\022\022\n\nclientName\030\006 \001(\t\022\025\n\rclientVersion" +
       "\030\007 \001(\t\022\017\n\007content\030\010 \001(\t\022\020\n\010senderId\030\t \001(" +
       "\t\022\022\n\nreceiverId\030\n \001(\t\022\021\n\tisEncript\030\013 \001(\010" +

@@ -26,7 +26,7 @@ public class ChatMsgHandler extends ProtocolHandler {
 		saveMessage(data);
 		//回应客户端
 		Message.Data.Builder reply = Message.Data.newBuilder();
-		reply.setId(UUID.randomUUID().toString());
+		reply.setId(data.getId());
 		reply.setCmd(Cmd.CHAT_TXT_ECHO_VALUE);
 		reply.setCreateTime(data.getCreateTime());
 		ctx.writeAndFlush(reply);
